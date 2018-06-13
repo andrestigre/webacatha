@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'acatha',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Admin</b>acth',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>A</b>CT',
 
     /*
     |--------------------------------------------------------------------------
@@ -141,12 +141,16 @@ return [
                     'url'  => 'admin/empresa',
                 ],
                 [
-                    'text'    => 'Level One',
+                    'text'    => 'Web Page',
                     'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'Level Two',
-                            'url'  => '#',
+                            'text' => 'Item nav',
+                            'url'  => 'admin/itemnav',
+                        ],
+                        [
+                            'text' => 'Slider',
+                            'url'  => 'admin/slider',
                         ],
                         [
                             'text'    => 'Level Two',

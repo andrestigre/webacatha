@@ -81,7 +81,6 @@ class EmpresaController extends Controller
             //$file->move($uploadPath, $fileName);
             $requestData['logo'] = 'uploads/empress/'.$fileName;
 
-
         }
 
         try {
@@ -90,7 +89,7 @@ class EmpresaController extends Controller
             flash('Guardado con exito')->success();
             
         } catch (\Exception $e) {
-            flash('No se pudo guardar la peticion')->warning();
+            flash('No se pudo realizar la peticion')->warning();
         }
 
         return redirect('admin/empresa');

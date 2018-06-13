@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use App\Itemnav;
+use App\Slider;
 
 class AcathaController extends Controller
 {
@@ -14,8 +16,10 @@ class AcathaController extends Controller
      */
     public function index()
     {
-        $empresa = Empresa::first();
-        return view('acatha',compact('empresa'));
+        $empresa  = Empresa::first();
+        $itemnavs = Itemnav::where('activo','1')->get();
+        $sliders = Slider::where('estado','1')->get();
+        return view('acatha',compact('empresa','itemnavs','sliders'));
     }
 
     /**

@@ -163,6 +163,7 @@ h1 {
   height: 470px;
   width: 100%;
 }
+/*
 .header-back.one {
   background: url('../img/header_1.jpg') 50% 0 no-repeat;
 }
@@ -172,6 +173,7 @@ h1 {
 .header-back.three {
   background: url('../img/header_3.jpg') 50% 0 no-repeat;
 }
+*/
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 /* Carousel base class */

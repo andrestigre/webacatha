@@ -1,0 +1,30 @@
+{
+    "fields": [
+        {
+            "name": "item_nav",
+            "type": "string"
+        },
+        {
+            "name": "contenido",
+            "type": "text"
+        },
+        {
+            "name": "estilo",
+            "type": "text"
+        },
+        {
+            "name": "activo",
+            "type": "boolean"
+        }
+    ],
+    "validations": [
+        {
+            "field": "item_nav",
+            "rules": "required|max:191"
+        },
+        {
+            "field": "contenido",
+            "rules": "required"
+        }
+    ]
+}

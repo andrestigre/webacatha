@@ -18,7 +18,7 @@ class EmpresaTableSeeder extends Seeder
     		'descripcion'=>'ácatha y AustroSoft son marcas registradas de AustroSoft Cia Ltda.',
     		'telefono'=>'+593 98 976 5272',
     		'email'=>'comercializacion@austrosoft.com.ec',
-    		'logo'=>'uploads/empress/40672.avatar_all.png'
+    		'logo'=>'uploads/empress/53642.logo_acatha_min.png'
     	] );
     }
 }

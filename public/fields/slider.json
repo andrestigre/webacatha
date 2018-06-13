@@ -1,0 +1,75 @@
+{
+    "fields": [
+        {
+            "name": "titulo",
+            "type": "string"
+        },
+        {
+            "name": "itemuno",
+            "type": "text"
+        },
+        {
+            "name": "itemdos",
+            "type": "text"
+        },
+        {
+            "name": "itemtres",
+            "type": "text"
+        },
+        {
+            "name": "itemcuatro",
+            "type": "text"
+        },
+        {
+            "name": "detalle",
+            "type": "text"
+        },
+        {
+            "name": "imagen",
+            "type": "text"
+        },
+        {
+            "name": "detalle",
+            "type": "text"
+        },
+        {
+            "name": "video_background",
+            "type": "boolean"
+        },
+        {
+            "name": "enlace_video",
+            "type": "text"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        }
+
+    ],
+    "validations": [
+        {
+            "field": "titulo",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "itemuno",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "itemdos",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "itemtres",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "itemcuatro",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "detalle",
+            "rules": "required|max:70"
+        }
+    ]
+}
