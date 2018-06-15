@@ -15,6 +15,65 @@ class ItemcomprobanteController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    public function get_toreajax(Request $request){
+        if($request->ajax()){
+            $perPage = 25;
+            $itemcomprobante = Itemcomprobante::where('comprobante_id', $request->id)->latest()->paginate($perPage);
+            return view('admin.comprobante.itemcomprobante',compact('itemcomprobante'));
+        }
+    }
+
+    public function storeajax(Request $request)
+    {
+        if($request->ajax()){
+            $itemcomprobante = Itemcomprobante::create($request->all());
+            return response()->json($itemcomprobante);
+        }    
+    }
+
+    public function select_itemcrt(Request $request){
+        if($request->ajax()){
+            $itemcomprobante = Itemcomprobante::where('id', $request->id)->first();
+            return response()->json($itemcomprobante);
+        }
+    }
+
+    public function updateitemcrt(Request $request, $id){
+        if($request->ajax()){
+            $itemcomprobante = Itemcomprobante::find($id);
+            $itemcomprobante->item_comprobante = $request->item_comprobante;
+            $itemcomprobante->contenido = $request->contenido;
+            $itemcomprobante->efecto = $request->efecto;
+            $itemcomprobante->estado = $request->estado;
+            $itemcomprobante->textalinear = $request->textalinear;
+            $itemcomprobante->comprobante_id = $request->comprobante_id;
+
+            $resultado = $itemcomprobante->save();
+
+                
+            if($resultado){
+                return response()->json(['success'=>'true','comprobante_id'=>$request->comprobante_id,'item'=>$itemcomprobante]);
+                //return response()->json($request);
+            }else{
+                return response()->json(['success'=>'false']);
+            }
+        }
+    }
+
+    public function delete_itemcrt(Request $request){
+        if($request->ajax()){
+            $itemcomprobante = Itemcomprobante::where('id', $request->id)->delete();
+            return response()->json($itemcomprobante);
+        }
+    }
+
+    public function listartodo(){
+            $perPage = 25;
+            $itemcomprobante = Itemcomprobante::latest()->paginate($perPage);
+            return view('admin.comprobante.itemcomprobante',compact('itemcomprobante'));
+    }
+
     public function index(Request $request)
     {
         $keyword = $request->get('search');

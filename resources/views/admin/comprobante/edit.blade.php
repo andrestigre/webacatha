@@ -15,7 +15,7 @@
 
                         <a href="#" title="Add Item Comprobante"><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createItemComprobante"><i class="fa fa-plus" aria-hidden="true"></i> Add Item Comprobante</button></a>
 
-                <a href="#" title="Ver Items Caracteristicas"><button id="btn_veritemcrt" class="btn btn-primary btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver Items Características</button></a>
+                <a href="#" title="Ver Items Comprobante"><button id="btn_veritemcomp" class="btn btn-primary btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver Items Comprobantes</button></a>
                         <br />
                         <br />
 
@@ -37,7 +37,7 @@
 
                             @include ('admin.comprobante.form', ['submitButtonText' => 'Actualizar'])
 
-                            <div id="listitemscaracteristicas">
+                            <div id="listitemscomprobantes">
 
                     
 

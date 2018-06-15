@@ -47,6 +47,14 @@ Route::group(['prefix' => 'admin'], function () {
 
   Route::resource('/itemcaracteristica', 'AdminAuth\\ItemcaracteristicaController');
   Route::resource('/comprobante', 'AdminAuth\\ComprobanteController');
+
+  Route::get('/read_itemcomp', 'AdminAuth\\ItemcomprobanteController@get_toreajax');
+  Route::post('/storeitemcomp', 'AdminAuth\\ItemcomprobanteController@storeajax');
+  Route::get('/select_itemcomp', 'AdminAuth\\ItemcomprobanteController@select_itemcrt');
+  Route::post('/updateitemcomp/{id}', 'AdminAuth\\ItemcomprobanteController@updateitemcrt');
+  Route::get('/delete_itemcomp', 'AdminAuth\\ItemcomprobanteController@delete_itemcrt');
+  Route::get('/listartodocomp', 'AdminAuth\\ItemcomprobanteController@listartodo');
+
 });
 
 Route::group(['prefix' => 'customer'], function () {

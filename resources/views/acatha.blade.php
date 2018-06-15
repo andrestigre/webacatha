@@ -139,26 +139,14 @@
             </div>
         </div>
         <div class="row features-block">
-            <div class="col-lg-2 features-text wow fadeInLeft">
-                <h2>Integrado </h2>
-                <p>Registra facturas, comprobantes de retención, notas de crédito, notas de débito,  y guias de remisión</p>
-            </div>
-            <div class="col-lg-2 features-text wow fadeInLeft">
-                <h2>A tiempo</h2>
-                <p>Entrega inmediata mediante envío a uno o varios correos electrónicos ajuntando PDF y XML</p>
-            </div>
-            <div class="col-lg-4 text-right text-center wow zoomIn">
-                <h2>Comprobantes Electrónicos </h2>
-                <p>Un comprobante electrónico es un documento que cumple con los requisitos legales y reglamentarios exigibles para todos comprobantes de venta, garantizando la autenticidad de su origen y la integridad de su contenido.</p>
-            </div>
-            <div class="col-lg-2 features-text text-right wow fadeInRight">
-                <h2>Actualizado </h2>
-                <p>Generamos todos los comprobantes segun los nuevos esquemas del SRi</p>
-            </div>
-            <div class="col-lg-2 features-text text-right wow fadeInRight">
-                <h2>Disponible </h2>
-                <p>Con un nivel del 99.6% en linea podrás realizar sus comprobantes de forma segura.</p>
-            </div>
+            @if(!empty($itemscomprobante))
+                @foreach($itemscomprobante as $itemscomp)
+                    <div class="col-lg-2 {{ $itemscomp->textalinear }} features-text wow {{ $itemscomp->efecto }}">
+                        <h2>{{ $itemscomp->item_comprobante }}</h2>
+                        <p>{{ $itemscomp->contenido }}</p>
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </section>
