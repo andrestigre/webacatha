@@ -5,10 +5,12 @@ namespace App\Http\Controllers\AdminAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Caracteristica;
+use App\Itemcaracteristica;
 use App\Itemnav;
 use Illuminate\Http\Request;
 
-class ItemnavController extends Controller
+class CaracteristicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +23,16 @@ class ItemnavController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $itemnav = Itemnav::where('item_nav', 'LIKE', "%$keyword%")
+            $caracteristica = Caracteristica::where('item_nav', 'LIKE', "%$keyword%")
                 ->orWhere('contenido', 'LIKE', "%$keyword%")
-                ->orWhere('estilo', 'LIKE', "%$keyword%")
+                ->orWhere('section_color', 'LIKE', "%$keyword%")
                 ->orWhere('activo', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $itemnav = Itemnav::orderBy('id', 'ASC')->latest()->paginate($perPage);
+            $caracteristica = Caracteristica::latest()->paginate($perPage);
         }
 
-        return view('admin.itemnav.index', compact('itemnav'));
+        return view('admin.caracteristica.index', compact('caracteristica'));
     }
 
     /**
@@ -40,7 +42,8 @@ class ItemnavController extends Controller
      */
     public function create()
     {
-        return view('admin.itemnav.create');
+        $itemsnav = Itemnav::where('activo','1')->pluck('item_nav', 'id');
+        return view('admin.caracteristica.create', compact('itemsnav'));
     }
 
     /**
@@ -53,25 +56,23 @@ class ItemnavController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'item_nav' => 'required|max:25',
-			'enlace' => 'nullable|max:191',
-			'contenido' => 'nullable'
+			'itemnav_id' => 'required|max:25',
+			'contenido' => 'required'
 		]);
         $requestData = $request->all();
 
         try {
-
-            Itemnav::create($requestData);
-            flash('Guardado con exito')->success();
+            
+        Caracteristica::create($requestData);
+        flash('Guardado con exito')->success();
             
         } catch (\Exception $e) {
-
             flash('No se pudo realizar la peticion')->warning();
             
         }
         
 
-        return redirect('admin/itemnav');
+        return redirect('admin/caracteristica');
     }
 
     /**
@@ -83,9 +84,9 @@ class ItemnavController extends Controller
      */
     public function show($id)
     {
-        $itemnav = Itemnav::findOrFail($id);
+        $caracteristica = Caracteristica::findOrFail($id);
 
-        return view('admin.itemnav.show', compact('itemnav'));
+        return view('admin.caracteristica.show', compact('caracteristica'));
     }
 
     /**
@@ -97,9 +98,12 @@ class ItemnavController extends Controller
      */
     public function edit($id)
     {
-        $itemnav = Itemnav::findOrFail($id);
+        $perPage = 25;
+        $itemsnav = Itemnav::where('activo','1')->pluck('item_nav', 'id');
+        $caracteristica = Caracteristica::findOrFail($id);
+        //$itemcaracteristica = Itemcaracteristica::where('caracteristica_id', $id)->latest()->paginate($perPage);
 
-        return view('admin.itemnav.edit', compact('itemnav'));
+        return view('admin.caracteristica.edit', compact('caracteristica','itemsnav'));
     }
 
     /**
@@ -113,27 +117,25 @@ class ItemnavController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'item_nav' => 'required|max:25',
-            'enlace' => 'nullable|max:191',
-            'contenido' => 'nullable'
+			'item_nav' => 'required|max:25',
+			'contenido' => 'required'
 		]);
         $requestData = $request->all();
 
         try {
+
+            $caracteristica = Caracteristica::findOrFail($id);
+        $caracteristica->update($requestData);
+            flash('Realizado con exito')->success();
             
-        $itemnav = Itemnav::findOrFail($id);
-        $itemnav->update($requestData);
-
-            flash('Guardado con exito')->success();
-
-        } catch (\Exception $e) {
-
+        } catch (Exception $e) {
             flash('No se pudo realizar la peticion')->warning();
             
         }
         
+        
 
-        return redirect('admin/itemnav');
+        return redirect('admin/caracteristica');
     }
 
     /**
@@ -147,15 +149,13 @@ class ItemnavController extends Controller
     {
         try {
             
-        Itemnav::destroy($id);
-        flash('Realizado con exito')->success();
+        Caracteristica::destroy($id);
+            flash('Realizado con exito')->success();
 
         } catch (\Exception $e) {
-
             flash('No se pudo realizar la peticion')->warning();
-            
         }
 
-        return redirect('admin/itemnav');
+        return redirect('admin/caracteristica');
     }
 }

@@ -1,0 +1,59 @@
+
+{
+    "fields": [
+        {
+            "name": "item_caracteristica",
+            "type": "string"
+        },
+        {
+            "name": "detalle",
+            "type": "string"
+        },
+        {
+            "name": "iconuno",
+            "type": "string"
+        },
+        {
+            "name": "icondos",
+            "type": "string"
+        },        
+        {
+            "name": "icontres",
+            "type": "string"
+        },         
+        {
+            "name": "iconcuatro",
+            "type": "string"
+        },        
+        {
+            "name": "iconcinco",
+            "type": "string"
+        },      
+        {
+            "name": "iconseis",
+            "type": "string"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        },
+        {
+            "name": "caracteristica_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "caracteristica_id",
+            "references": "id",
+            "on": "caracteristicas"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Caracteristica",
+            "type": "belongsTo",
+            "class": "App\\Caracteristica"
+        }
+    ]
+}

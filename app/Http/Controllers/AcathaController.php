@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Empresa;
 use App\Itemnav;
 use App\Slider;
+use App\Caracteristica;
+use App\Itemcaracteristica;
 
 class AcathaController extends Controller
 {
@@ -19,7 +21,9 @@ class AcathaController extends Controller
         $empresa  = Empresa::first();
         $itemnavs = Itemnav::where('activo','1')->get();
         $sliders = Slider::where('estado','1')->get();
-        return view('acatha',compact('empresa','itemnavs','sliders'));
+        $caracteristicas = Caracteristica::where('activo','1')->first();
+        $itemscaracteristicas = Itemcaracteristica::where('caracteristica_id', $caracteristicas->id)->where('estado','1')->get();
+        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas'));
     }
 
     /**

@@ -37,36 +37,31 @@
 
 @include('layouts.partials.slider')
 
-
-<section id="features" class="container services">
+@if(!empty($caracteristicas))
+<section id="features" class="container services {{ $caracteristicas->section_color }}">
     <div class="row">
-        Acatha no es solo un sistema contable, ACATHA es una herramienta potente que te permiirá gestionar tu negocio de la manera mas r&aacute;pida, sencilla e intuititiva,
-        contamos con herramientas que te permitir&aacute;n gestionar Nomina, Importaciones, Activos Fijos, ISP, Producci&oacute;n, Restaurantes, Eventos y m&aacute;s todo vinculado
-        contablemente bajo normativas tributarias que permiten a tu contador realizar declaraciones sin contratiempos.
+        {{ $caracteristicas->contenido }}
     </div>
     <div class="row">
-        <div class="col-sm-3">
-            <h2>Multiplataforma</h2>
-            <p>Nuestra aplicaciones se encuentran disponibles para diferentes tipos de dispositivos y para tu sistema operativo a elecci&oacute;n.</p>
-            <p><i class="fa fa-windows fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-linux fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-apple fa-2x" aria-hidden="true"></i></p>
-        </div>
-        <div class="col-sm-3">
-            <h2>Intuitivo</h2>
-            <p>De f&aacute;cil navegaci&oacute;n, experimenta un producto con un dise&ntilde;o fluido sin muchos clicks, sin dar muchas vueltas o varios intentos</p>
-            <p><i class="fa fa-hand-o-up fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-universal-access fa-2x" aria-hidden="true"></i></p>
-        </div>
-        <div class="col-sm-3">
-            <h2>Seguro</h2>
-            <p>Dispondrás de toda tu información organizada y <b>segura</b> gracias a la integracion de servicios como Amazon Cloud Services</p>
-            <p><i class="fa fa-shield fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-lock fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-cloud fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-globe fa-2x" aria-hidden="true"></i></p>
-        </div>
-        <div class="col-sm-3">
-            <h2>Soporte</h2>
-            <p>Actualizaciones permanentes, asesoría en linea, capacitaciones en todo momento con mas de 300 aplicativos disponibles para gestionar tu empresa.</p>
-            <p><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-ticket fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope fa-2x" aria-hidden="true"></i></p>
-        </div>
+        @if(!empty($itemscaracteristicas))
+            @foreach($itemscaracteristicas as $itemscaracteristica)
+                <div class="col-sm-3">
+                    <h2>{{ $itemscaracteristica->item_caracteristica }}</h2>
+                    <p>{{ $itemscaracteristica->detalle }}</p>
+                    <p>
+                        @if(!empty($itemscaracteristica->iconuno))<i class="{{ $itemscaracteristica->iconuno }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->icondos))<i class="{{ $itemscaracteristica->icondos }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->icontres))<i class="{{ $itemscaracteristica->icontres }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->iconcuatro))<i class="{{ $itemscaracteristica->iconcuatro }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->iconcinco))<i class="{{ $itemscaracteristica->iconcinco }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->iconseis))<i class="{{ $itemscaracteristica->iconseis }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                    </p>
+                </div>
+            @endforeach
+        @endif
     </div>
 </section>
+@endif
 
 <section  class="container features">
     <div class="row">

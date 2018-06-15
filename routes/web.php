@@ -37,6 +37,13 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('/empresa', 'AdminAuth\\EmpresaController');
   Route::resource('/itemnav', 'AdminAuth\\ItemnavController');
   Route::resource('/slider', 'AdminAuth\\SliderController');
+  Route::resource('/caracteristica', 'AdminAuth\\CaracteristicaController');
+  Route::post('/storeitemcrt', 'AdminAuth\\ItemcaracteristicaController@storeajax');
+  Route::get('/read_itemcrt', 'AdminAuth\\ItemcaracteristicaController@get_toreajax');
+  Route::get('/delete_itemcrt', 'AdminAuth\\ItemcaracteristicaController@delete_itemcrt');
+  Route::get('/select_itemcrt', 'AdminAuth\\ItemcaracteristicaController@select_itemcrt');
+  Route::post('/updateitemcrt/{id}', 'AdminAuth\\ItemcaracteristicaController@updateitemcrt');
+  Route::get('/listartodo', 'AdminAuth\\ItemcaracteristicaController@listartodo');
 });
 
 Route::group(['prefix' => 'customer'], function () {
@@ -52,3 +59,5 @@ Route::group(['prefix' => 'customer'], function () {
   Route::get('/password/reset', 'CustomerAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
 });
+
+Route::resource('admin/itemcaracteristica', 'AdminAuth\\ItemcaracteristicaController');

@@ -36,7 +36,7 @@ class SliderController extends Controller
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $slider = Slider::latest()->paginate($perPage);
+            $slider = Slider::orderBy('id', 'ASC')->latest()->paginate($perPage);
         }
 
         return view('admin.slider.index', compact('slider'));

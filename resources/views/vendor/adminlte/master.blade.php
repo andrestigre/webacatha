@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
 @yield('title', config('adminlte.title', 'AdminLTE 2'))
 @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
@@ -69,7 +70,16 @@
 $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 </script>
 
+<!-- libreria alerts -->
+{!! Html::style('js/librerias/jquery-alertable/jquery.alertable.css') !!}
+{!! Html::script('js/librerias/jquery-alertable/jquery.alertable.js') !!}
+
 @yield('adminlte_js')
+
+<!-- Scripts Functions-->
+    <script src="{{ asset('js/cruditemcr.js') }}"></script>
+
+
 
 </body>
 </html>

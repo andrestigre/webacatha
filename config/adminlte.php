@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>acth',
+    'logo' => '<b>Admin</b>acatha',
 
     'logo_mini' => '<b>A</b>CT',
 
@@ -153,12 +153,12 @@ return [
                             'url'  => 'admin/slider',
                         ],
                         [
-                            'text'    => 'Level Two',
+                            'text'    => 'Secciones',
                             'url'     => '#',
                             'submenu' => [
                                 [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
+                                    'text' => 'Características',
+                                    'url'  => 'admin/caracteristica',
                                 ],
                                 [
                                     'text' => 'Level Three',
