@@ -8,6 +8,7 @@ use App\Itemnav;
 use App\Slider;
 use App\Caracteristica;
 use App\Itemcaracteristica;
+use App\Comprobante;
 
 class AcathaController extends Controller
 {
@@ -23,7 +24,13 @@ class AcathaController extends Controller
         $sliders = Slider::where('estado','1')->get();
         $caracteristicas = Caracteristica::where('activo','1')->first();
         $itemscaracteristicas = Itemcaracteristica::where('caracteristica_id', $caracteristicas->id)->where('estado','1')->get();
-        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas'));
+        $caracteristicassub = Caracteristica::where('id','!=','1')->where('activo','1')->first();
+        $itemscaracteristicasleft = Itemcaracteristica::where('caracteristica_id', $caracteristicassub->id)->where('estado','1')->where('alinear','1')->get();
+        $itemscaracteristicasrigth = Itemcaracteristica::where('caracteristica_id', $caracteristicassub->id)->where('estado','1')->where('alinear','0')->get();
+
+
+        $comprobante = Comprobante::where('activo','1')->first();
+        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante'));
     }
 
     /**

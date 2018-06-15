@@ -10,11 +10,17 @@
         {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor']) !!}
         {!! $errors->first('contenido', '<p class="help-block">:message</p>') !!}
     </div>
+</div><div class="form-group {{ $errors->has('imagen') ? 'has-error' : ''}}">
+    <label for="imagen" class="col-md-4 control-label">{{ 'Imagen' }}</label>
+    <div class="col-md-6">
+        {!! Form::file('imagen', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! $errors->first('imagen', '<p class="help-block">:message</p>') !!}
+    </div>
 </div><div class="form-group {{ $errors->has('section_color') ? 'has-error' : ''}}">
     <label for="section_color" class="col-md-4 control-label">{{ 'Section Color' }}</label>
     <div class="col-md-6">
         <select name="section_color" class="form-control" id="section_color" >
-    @foreach (json_decode('{"gray-section":"Gray","white":"White"}', true) as $optionKey => $optionValue)
+    @foreach (json_decode('{"white":"White","gray-section":"Gray"}', true) as $optionKey => $optionValue)
         <option value="{{ $optionKey }}" {{ (isset($caracteristica->section_color) && $caracteristica->section_color == $optionKey) ? 'selected' : ''}}>{{ $optionValue }}</option>
     @endforeach
 </select>
@@ -24,10 +30,12 @@
     <label for="activo" class="col-md-4 control-label">{{ 'Activo' }}</label>
     <div class="col-md-6">
         <div class="radio">
-    <label><input name="activo" type="radio" value="1" {{ (isset($caracteristica) && 1 == $caracteristica->activo) ? 'checked' : '' }}> Yes</label>
+    <label>
+        <input name="activo" type="radio" value="0" {{ (isset($caracteristica) && 0 == $caracteristica->activo) ? 'checked' : '' }}> No</label>
 </div>
 <div class="radio">
-    <label><input name="activo" type="radio" value="0" @if (isset($caracteristica)) {{ (0 == $caracteristica->activo) ? 'checked' : '' }} @else {{ 'checked' }} @endif> No</label>
+    <label>
+        <input name="activo" type="radio" value="1" @if (isset($caracteristica)) {{ (1 == $caracteristica->activo) ? 'checked' : '' }} @else {{ 'checked' }} @endif> Yes</label>
 </div>
         {!! $errors->first('activo', '<p class="help-block">:message</p>') !!}
     </div>

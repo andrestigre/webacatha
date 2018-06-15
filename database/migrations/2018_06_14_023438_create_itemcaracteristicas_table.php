@@ -23,6 +23,7 @@ class CreateItemcaracteristicasTable extends Migration
             $table->string('iconcinco')->nullable();
             $table->string('iconseis')->nullable();
             $table->boolean('estado')->default(1);
+            $table->boolean('alinear')->default(1);//alinear rigth = 0 y left = 1
             $table->integer('caracteristica_id')->unsigned();
             $table->foreign('caracteristica_id')->references('id')->on('caracteristicas');
             $table->timestamps();

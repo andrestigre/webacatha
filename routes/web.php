@@ -44,6 +44,9 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/select_itemcrt', 'AdminAuth\\ItemcaracteristicaController@select_itemcrt');
   Route::post('/updateitemcrt/{id}', 'AdminAuth\\ItemcaracteristicaController@updateitemcrt');
   Route::get('/listartodo', 'AdminAuth\\ItemcaracteristicaController@listartodo');
+
+  Route::resource('/itemcaracteristica', 'AdminAuth\\ItemcaracteristicaController');
+  Route::resource('/comprobante', 'AdminAuth\\ComprobanteController');
 });
 
 Route::group(['prefix' => 'customer'], function () {
@@ -60,4 +63,5 @@ Route::group(['prefix' => 'customer'], function () {
   Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
 });
 
-Route::resource('admin/itemcaracteristica', 'AdminAuth\\ItemcaracteristicaController');
+
+Route::resource('admin/itemcomprobante', 'AdminAuth\\ItemcomprobanteController');

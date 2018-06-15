@@ -5,8 +5,16 @@
             "type": "string"
         },
         {
+            "name": "detalle",
+            "type": "text"
+        },
+        {
             "name": "contenido",
             "type": "text"
+        },
+        {
+            "name": "imagen",
+            "type": "file"
         },
         {
             "name": "section_color",
@@ -19,6 +27,14 @@
         {
             "name": "activo",
             "type": "boolean"
+        },
+        {
+            "name": "enlace",
+            "type": "string"
+        },
+        {
+            "name": "titulofinal",
+            "type": "text"
         }
     ],
     "validations": [
@@ -27,7 +43,7 @@
             "rules": "required|max:25"
         },
         {
-            "field": "contenido",
+            "field": "detalle",
             "rules": "required"
         }
     ]

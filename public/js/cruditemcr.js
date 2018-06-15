@@ -214,6 +214,11 @@ var EditarItemCrt = function(id){
                     //$("#estadomodup").val(data.estado);
                     $('#formitrmcaracteristicaupdate').find(':radio[id=estadomod][value="0"]').prop('checked', true);
                 }
+                if(data.alinear=='1'){
+                    $('#formitrmcaracteristicaupdate').find(':radio[id=alinearmod][value="1"]').prop('checked', true);
+                }else{
+                    $('#formitrmcaracteristicaupdate').find(':radio[id=alinearmod][value="0"]').prop('checked', true);
+                }
 
 
                 $("#idmod").val(data.id);
@@ -260,6 +265,11 @@ var VerItemCrt = function(id){
                 }else{
                     //$("#estadomodup").val(data.estado);
                     $('#formitrmcaracteristicaview').find(':radio[id=estadomodv][value="0"]').prop('checked', true);
+                }
+                if(data.alinear=='1'){
+                    $('#formitrmcaracteristicaview').find(':radio[id=alinearv][value="1"]').prop('checked', true);
+                }else{
+                    $('#formitrmcaracteristicaview').find(':radio[id=alinearv][value="0"]').prop('checked', true);
                 }
                 console.log('copiado');
             },

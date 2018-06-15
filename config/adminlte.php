@@ -161,8 +161,8 @@ return [
                                     'url'  => 'admin/caracteristica',
                                 ],
                                 [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
+                                    'text' => 'Comprobantes',
+                                    'url'  => 'admin/comprobante',
                                 ],
                             ],
                         ],

@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class ItemnavController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['except' => 'logout']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -158,4 +162,11 @@ class ItemnavController extends Controller
 
         return redirect('admin/itemnav');
     }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
+    
 }

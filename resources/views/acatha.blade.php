@@ -40,7 +40,7 @@
 @if(!empty($caracteristicas))
 <section id="features" class="container services {{ $caracteristicas->section_color }}">
     <div class="row">
-        {{ $caracteristicas->contenido }}
+        {!! $caracteristicas->contenido !!}
     </div>
     <div class="row">
         @if(!empty($itemscaracteristicas))
@@ -63,85 +63,79 @@
 </section>
 @endif
 
-<section  class="container features">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
-            <h1>Cientos de aplicaciones &uacute;tiles<br/> <span class="navy"> con la mayor cantidad de informaci&oacute;n al instante</span> </h1>
-            <p>en el ecosistema que crece junto a tí</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 text-center wow fadeInLeft">
-            <div>
-                <i class="fa fa-desktop features-icon" aria-hidden="true"></i></i>
-                <h2>POS</h2>
-                <p>Aplicaciónes adaptadas para negocios que tienen facturación recurrente a traves de equipos touch o similares</p>
-            </div>
-            <div class="m-t-lg">
-                <i class="fa fa-mobile features-icon"></i>
-                <h2>Móvil</h2>
-                <p>Tu negocio a donde vayas y en tu bolsillo, maneja tu empresa desde cualquier dispositivo móvil.</p>
-            </div>
-            <div class="m-t-lg">
-                <i class="fa fa-shopping-cart features-icon"></i>
-                <h2>E-commerce</h2>
-                <p>Permite a tus clientes acceder a tu productos y que puedan registrar sus pedidos on-line eficientemente.</p>
+
+@if(!empty($caracteristicassub))
+    <section  class="container features {{ $caracteristicassub->section_color }}">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                {!! $caracteristicassub->contenido !!}
             </div>
         </div>
-        <div class="col-md-6 text-center  wow zoomIn">
-            <img src="{{ asset('acatha/img/ecosistema3.png') }}" alt="dashboard" class="img-responsive">
+        <div class="row">
+            <div class="col-md-3 text-center wow fadeInLeft">
+                @if(!empty($itemscaracteristicasleft))
+                    @foreach($itemscaracteristicasleft as $itemscaracteristicaleft)
+                        <div>
+                            @if(!empty($itemscaracteristicaleft->iconuno))
+                            <i class="{{ $itemscaracteristicaleft->iconuno }}" aria-hidden="true"></i>@endif
+                            <h2>{{ $itemscaracteristicaleft->item_caracteristica }}</h2>
+                            <p>{{ $itemscaracteristicaleft->detalle }}</p>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+            <div class="col-md-6 text-center  wow zoomIn">
+                <img src="{{ asset($caracteristicassub->imagen) }}" alt="dashboard" class="img-responsive">
+            </div>
+            <div class="col-md-3 text-center wow fadeInRight">
+                @if(!empty($itemscaracteristicasrigth))
+                    @foreach($itemscaracteristicasrigth as $itemscaracteristicarigth)
+                        <div>
+                            @if(!empty($itemscaracteristicarigth->iconuno))
+                            <i class="{{ $itemscaracteristicarigth->iconuno }}" aria-hidden="true"></i>@endif
+                            <h2>{{ $itemscaracteristicarigth->item_caracteristica }}</h2>
+                            <p>{{ $itemscaracteristicarigth->detalle }}</p>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
-        <div class="col-md-3 text-center wow fadeInRight">
-            <div>
-                <i class="fa fa-hdd-o features-icon" aria-hidden="true"></i>
-                <h2>Backups</h2>
-                <p>Tu información respaldada de forma automatica siempre en servidores alojados en varios puntos del mundo.</p>
+    </section>
+@endif
+
+@if(!empty($comprobante))
+
+<section id="electronicos" class="{{ $comprobante->section_color }} features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                {!! $comprobante->detalle !!}
             </div>
-            <div class="m-t-lg">
-                <i class="fa fa-cloud features-icon"></i>
-                <h2>En la nube</h2>
-                <p>Nuestra infraestructura esta apoyada por una nube que ofrece seguridad y disponibilidad 24/7.</p>
+        </div>
+        <div class="row features-block">
+            <div class="col-lg-6 features-text wow fadeInLeft">
+                {!! $comprobante->contenido !!}
+                @if(!empty($comprobante->enlace))
+                <a href="{{ $comprobante->enlace }}" class="btn btn-primary">Saber m&aacute;s</a>
+                @endif
             </div>
-            <div class="m-t-lg">
-                <i class="fa fa-globe features-icon"></i>
-                <h2>Integrable</h2>
-                <p>Integra tus aplicaciones a Acatha mediante API's o atrav&eacute;s de servicios web.</p>
+            <div class="col-lg-6 text-right wow fadeInRight">
+                <img src="{{ asset($comprobante->imagen) }}" alt="dashboard" class="img-responsive pull-right">
             </div>
         </div>
     </div>
 </section>
 
-<section id="electronicos" class="gray-section features">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>Facturación Electrónica</h1>
-                <p>Realiza la emisión de comprobantes electrónicos de forma eficiente.</p>
-            </div>
-        </div>
-        <div class="row features-block">
-            <div class="col-lg-6 features-text wow fadeInLeft">
-                <small>ACATHA</small>
-                <h2>Integrado, Simple, Actualizado, Seguro, Disponible </h2>
-                <p>Factura de manera fácil, eficiente y segura donde te encuentres puedes adquirir la app para tus dispositivos móviles o integrarlo a Acatha para la gestión de tu negocio. </br></br>
-                    Al alcance de todos, construido bajo las normas y requerimientos según las fichas técnicas liberadas por el SRi en sus modalidades on-line y off-line.</p>
-                <a href="" class="btn btn-primary">Saber m&aacute;s</a>
-            </div>
-            <div class="col-lg-6 text-right wow fadeInRight">
-                <img src="{{ asset('acatha/img/factelectronica3.png') }}" alt="dashboard" class="img-responsive pull-right">
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <section class="features">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h1>&nbsp;</h1>
-                <p>Que son los comprobantes electrónicos? </p>
+                <p>{{ $comprobante->titulofinal }} </p>
             </div>
         </div>
         <div class="row features-block">
@@ -168,6 +162,7 @@
         </div>
     </div>
 </section>
+@endif
 
 <section id="soporte" class="timeline gray-section">
     <div class="container">

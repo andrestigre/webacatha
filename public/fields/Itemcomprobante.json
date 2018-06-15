@@ -1,0 +1,39 @@
+
+{
+    "fields": [
+        {
+            "name": "item_comprobante",
+            "type": "string"
+        },
+        {
+            "name": "contenido",
+            "type": "text"
+        },
+        {
+            "name": "efecto",
+            "type": "string"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        },
+        {
+            "name": "comprobante_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "comprobante_id",
+            "references": "id",
+            "on": "comprobantes"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Comprobante",
+            "type": "belongsTo",
+            "class": "App\\Comprobante"
+        }
+    ]
+}

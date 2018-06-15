@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Caracteristica extends Model
+class Comprobante extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'caracteristicas';
+    protected $table = 'comprobantes';
 
     /**
     * The database primary key value.
@@ -25,12 +25,11 @@ class Caracteristica extends Model
      *
      * @var array
      */
-    protected $fillable = ['itemnav_id', 'contenido', 'imagen', 'section_color', 'activo'];
+    protected $fillable = ['itemnav_id', 'detalle', 'contenido', 'imagen', 'section_color', 'activo', 'enlace', 'titulofinal'];
 
     public function Itemnav()
     {
         return $this->belongsTo('App\Itemnav');
     }
-
     
 }

@@ -25,7 +25,7 @@ class Itemcaracteristica extends Model
      *
      * @var array
      */
-    protected $fillable = ['item_caracteristica', 'detalle', 'iconuno', 'icondos', 'icontres', 'iconcuatro', 'iconcinco', 'iconseis', 'estado', 'caracteristica_id'];
+    protected $fillable = ['item_caracteristica', 'detalle', 'iconuno', 'icondos', 'icontres', 'iconcuatro', 'iconcinco', 'iconseis', 'estado', 'caracteristica_id','alinear'];
 
     public function Caracteristica()
     {

@@ -9,9 +9,15 @@ use App\Caracteristica;
 use App\Itemcaracteristica;
 use App\Itemnav;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Image;
 
 class CaracteristicaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['except' => 'logout']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -61,10 +67,21 @@ class CaracteristicaController extends Controller
 		]);
         $requestData = $request->all();
 
+        if ($request->hasFile('imagen')) {
+            $file = Input::file('imagen');
+            $uploadPath = public_path('uploads/sections/');
+            $extension = $file->getClientOriginalName();
+            $image  = Image::make($file->getRealPath());
+            //$image->resize(1200, 900);
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            $image->save($uploadPath.$fileName);
+            $requestData['imagen'] = 'uploads/sections/'.$fileName;
+        }
+
         try {
             
-        Caracteristica::create($requestData);
-        flash('Guardado con exito')->success();
+            Caracteristica::create($requestData);
+            flash('Guardado con exito')->success();
             
         } catch (\Exception $e) {
             flash('No se pudo realizar la peticion')->warning();
@@ -117,10 +134,23 @@ class CaracteristicaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'item_nav' => 'required|max:25',
+			'itemnav_id' => 'required|max:25',
 			'contenido' => 'required'
 		]);
         $requestData = $request->all();
+
+        if ($request->hasFile('imagen')) {
+            $file = Input::file('imagen');
+            $uploadPath = public_path('uploads/sections/');
+            //$extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalName();
+            $image  = Image::make($file->getRealPath());
+            //$image->resize(1200, 900);
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            $image->save($uploadPath.$fileName);
+            //$file->move($uploadPath, $fileName);
+            $requestData['imagen'] = 'uploads/sections/'.$fileName;
+        }
 
         try {
 
@@ -158,4 +188,11 @@ class CaracteristicaController extends Controller
 
         return redirect('admin/caracteristica');
     }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
+
 }

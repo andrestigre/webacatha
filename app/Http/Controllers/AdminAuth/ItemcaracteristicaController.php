@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class ItemcaracteristicaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['except' => 'logout']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -111,6 +115,7 @@ class ItemcaracteristicaController extends Controller
             $itemcaracteristica->iconseis = $request->iconseis;
             $itemcaracteristica->caracteristica_id = $request->caracteristica_id;
             $itemcaracteristica->estado = $request->estado;
+            $itemcaracteristica->alinear = $request->alinear;
 
             $resultado = $itemcaracteristica->save();
 
@@ -189,4 +194,11 @@ class ItemcaracteristicaController extends Controller
 
         return redirect('admin/itemcaracteristica')->with('flash_message', 'Itemcaracteristica deleted!');
     }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+
+    
 }

@@ -1,13 +1,13 @@
 
 <!--MODAL ADD NEW-->
 
-<div class="modal fade" id="createItemCaracteristica" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel">
+<div class="modal fade" id="createItemComprobante" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
            <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="favoritesModalLabel">Add Item Características</h4>
+                <h4 class="modal-title" id="favoritesModalLabel">Add Item Comprobante</h4>
             </div>
             <div class="modal-body">
 
@@ -20,7 +20,7 @@
                 @endif
 
 
-                <form method="POST" id="formitrmcaracteristica" action="{{ url('/admin/storeitemcrt') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                <form method="POST" id="formitrmcomprobante" action="{{ url('/admin/storeitemcomp') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
 
                     <div class="form-group {{ $errors->has('item_caracteristica') ? 'has-error' : ''}}">
                         <label for="item_caracteristica" class="col-md-4 control-label">{{ 'Item Caracteristica' }}</label>
