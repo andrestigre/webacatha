@@ -7,7 +7,7 @@
 </div><div class="form-group {{ $errors->has('contenido') ? 'has-error' : ''}}">
     <label for="contenido" class="col-md-4 control-label">{{ 'Contenido' }}</label>
     <div class="col-md-6">
-        {!! Form::textarea('contenido', null, ['class' => 'form-control ']) !!}
+        {!! Form::textarea('contenido', null, ['class' => 'form-control ckeditor']) !!}
         {!! $errors->first('contenido', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('section_color') ? 'has-error' : ''}}">

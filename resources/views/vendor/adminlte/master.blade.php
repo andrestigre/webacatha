@@ -29,6 +29,9 @@
         <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     @endif
 
+        <!-- Ckeditor -->
+    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+
     @yield('adminlte_css')
 
     <!--[if lt IE 9]>
