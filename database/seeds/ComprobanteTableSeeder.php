@@ -22,9 +22,9 @@ class ComprobanteTableSeeder extends Seeder
 'activo'=>1,
 'enlace'=>'www.google.com',
 'titulofinal'=>'Que son los comprobantes electrónicos?',
-'itemnav_id'=>3,
-'created_at'=>'2018-06-16 00:47:44',
-'updated_at'=>'2018-06-16 01:25:42'
+'itemnav_id'=>3
 ] );
+
+        
     }
 }

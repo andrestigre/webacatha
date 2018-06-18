@@ -164,6 +164,10 @@ return [
                                     'text' => 'Comprobantes',
                                     'url'  => 'admin/comprobante',
                                 ],
+                                [
+                                    'text' => 'Soporte',
+                                    'url'  => 'admin/soporte',
+                                ],
                             ],
                         ],
                     ],

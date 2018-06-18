@@ -1,0 +1,50 @@
+{
+    "fields": [
+        {
+            "name": "item_nav",
+            "type": "string"
+        },
+        {
+            "name": "detalle",
+            "type": "text"
+        },
+        {
+            "name": "contenido",
+            "type": "text"
+        },
+        {
+            "name": "imagen",
+            "type": "file"
+        },
+        {
+            "name": "section_color",
+            "type": "select",
+            "options": {
+                "gray-section": "Gray",
+                "white": "White"            
+            }
+        },
+        {
+            "name": "activo",
+            "type": "boolean"
+        },
+        {
+            "name": "enlace",
+            "type": "string"
+        },
+        {
+            "name": "titulofinal",
+            "type": "text"
+        }
+    ],
+    "validations": [
+        {
+            "field": "item_nav",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "detalle",
+            "rules": "required"
+        }
+    ]
+}   

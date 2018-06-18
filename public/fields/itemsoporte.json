@@ -1,0 +1,55 @@
+
+{
+    "fields": [
+        {
+            "name": "item_soporte",
+            "type": "string"
+        },
+        {
+            "name": "titulo",
+            "type": "text"
+        },
+        {
+            "name": "contenido",
+            "type": "text"
+        },
+        {
+            "name": "enlace",
+            "type": "text"
+        },
+        {
+            "name": "icono",
+            "type": "text"
+        },
+        {
+            "name": "tituloanexo",
+            "type": "string"
+        },
+        {
+            "name": "textoanexo",
+            "type": "string"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        },
+        {
+            "name": "soporte_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "soporte_id",
+            "references": "id",
+            "on": "soportes"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Soporte",
+            "type": "belongsTo",
+            "class": "App\\Soporte"
+        }
+    ]
+}

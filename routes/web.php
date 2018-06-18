@@ -55,6 +55,17 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/delete_itemcomp', 'AdminAuth\\ItemcomprobanteController@delete_itemcrt');
   Route::get('/listartodocomp', 'AdminAuth\\ItemcomprobanteController@listartodo');
 
+  Route::resource('/itemcomprobante', 'AdminAuth\\ItemcomprobanteController');
+  Route::resource('/soporte', 'AdminAuth\\SoporteController');
+  Route::resource('/itemsoporte', 'AdminAuth\\ItemsoporteController');
+
+  Route::get('/read_itemsop', 'AdminAuth\\ItemsoporteController@get_toreajax');
+  Route::post('/storeitemsop', 'AdminAuth\\ItemsoporteController@storeajax');
+  Route::get('/select_itemsop', 'AdminAuth\\ItemsoporteController@select_itemcrt');
+  Route::post('/updateitemsop/{id}', 'AdminAuth\\ItemsoporteController@updateitemcrt');
+  Route::get('/delete_itemsop', 'AdminAuth\\ItemsoporteController@delete_itemcrt');
+
+  
 });
 
 Route::group(['prefix' => 'customer'], function () {
@@ -71,5 +82,3 @@ Route::group(['prefix' => 'customer'], function () {
   Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
 });
 
-
-Route::resource('admin/itemcomprobante', 'AdminAuth\\ItemcomprobanteController');

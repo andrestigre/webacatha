@@ -10,6 +10,8 @@ use App\Caracteristica;
 use App\Itemcaracteristica;
 use App\Comprobante;
 use App\Itemcomprobante;
+use App\Soporte;
+use App\Itemsoporte;
 
 class AcathaController extends Controller
 {
@@ -32,7 +34,10 @@ class AcathaController extends Controller
 
         $comprobante = Comprobante::where('activo','1')->first();
         $itemscomprobante = Itemcomprobante::where('comprobante_id', $comprobante->id)->where('estado','1')->get();
-        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante','itemscomprobante'));
+
+        $soporte = Soporte::where('activo','1')->first();
+        $itemsoportes = Itemsoporte::where('soporte_id', $soporte->id)->where('estado','1')->get();
+        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante','itemscomprobante','soporte','itemsoportes'));
     }
 
     /**

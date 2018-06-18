@@ -141,7 +141,10 @@
         <div class="row features-block">
             @if(!empty($itemscomprobante))
                 @foreach($itemscomprobante as $itemscomp)
-                    <div class="col-lg-2 {{ $itemscomp->textalinear }} features-text wow {{ $itemscomp->efecto }}">
+                    @if(($itemscomp->textalinear)=='0') <?php  $align='col-lg-2 features-text text-right'; ?> @endif
+                    @if(($itemscomp->textalinear)=='1') <?php  $align='col-lg-2 features-text text-left'; ?> @endif
+                    @if(($itemscomp->textalinear)=='2') <?php  $align='col-lg-4 text-center text-right'; ?> @endif
+                    <div class="<?php echo $align; ?> wow {{ $itemscomp->efecto }}">
                         <h2>{{ $itemscomp->item_comprobante }}</h2>
                         <p>{{ $itemscomp->contenido }}</p>
                     </div>
@@ -152,62 +155,46 @@
 </section>
 @endif
 
-<section id="soporte" class="timeline gray-section">
+@if(!empty($soporte))
+
+<section id="soporte" class="timeline {{ $soporte->section_color }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="navy-line"></div>
-                <h1>Soporte al cliente</h1>
-                <p>Queremos conocer tus necesidades, comunícate con nosotros para continuar haciendo de <strong>ACATHA</strong> algo único. </p>
+                <h1>{{ $soporte->titulo }}</h1>
+                <p>{{ $soporte->detalle }}</p>
             </div>
         </div>
         <div class="row features-block">
             <div class="col-lg-12">
                 <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+
+                    @foreach($itemsoportes as $itemsoporte)
                     <div class="vertical-timeline-block">
                         <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-mobile"></i>
+                            <i class="{{ $itemsoporte->icono }}"></i>
                         </div>
 
                         <div class="vertical-timeline-content">
-                            <h2>Call Center</h2>
-                            <p>Si tienes preguntas, o deseas implementar nuevos procesos comunícate con nosotros.
+                            <h2>{{ $itemsoporte->titulo }}</h2>
+                            <p>{!! $itemsoporte->contenido !!}
                             </p>
-                            <a href="#" class="btn btn-xs btn-primary"> Comunícate</a>
-                            <span class="vertical-date"> Teléfonos <br/> <small>T: (593) 72818447<br/>(593) 74091633</small> </span>
+                            @if(!empty($itemsoporte->enlace))
+                            <a href="{{ $itemsoporte->enlace }}" class="btn btn-xs btn-primary">  {{ $itemsoporte->tituloenlace }} </a>
+                            @endif
+                            <span class="vertical-date"> {{ $itemsoporte->tituloanexo }} <br/> <small>{{ $itemsoporte->textoanexo }}</small> </span>
                         </div>
                     </div>
+                    @endforeach
 
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-desktop"></i>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h2>Team Viewer</h2>
-                            <p>Ofrecemos soporte remoto con la herramienta número uno del mercado de forma inmediata no precencial.</p>
-                            <a href="#" class="btn btn-xs btn-primary"> Descargar</a>
-                            <span class="vertical-date"> Soporte Remoto <br/> <small>all-in-one</small> </span>
-                        </div>
-                    </div>
-
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-cogs"></i>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h2>Jira</h2>
-                            <p>Aplicación diseñada para el seguimiento de errores, incidentes y para la gestión operativa de nuevos proyectos. </p>
-                            <a href="#" class="btn btn-xs btn-primary"> Acceder</a>
-                            <span class="vertical-date"> Jira <br/> <small>Service Desk</small> </span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+@endif
+
 
 <section id="pricing" class="pricing">
     <div class="container">
