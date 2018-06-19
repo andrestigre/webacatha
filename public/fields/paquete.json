@@ -1,0 +1,39 @@
+
+{
+    "fields": [
+        {
+            "name": "item_paquete",
+            "type": "string"
+        },
+        {
+            "name": "detalle",
+            "type": "string"
+        },
+        {
+            "name": "precio",
+            "type": "string"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        },
+        {
+            "name": "tipopaquete_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "tipopaquete_id",
+            "references": "id",
+            "on": "tipopaquetes"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Tipopaquete",
+            "type": "belongsTo",
+            "class": "App\\Tipopaquete"
+        }
+    ]
+}

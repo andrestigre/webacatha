@@ -25,7 +25,7 @@ class Itemsoporte extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'titulo', 'contenido', 'enlace', 'tituloenlace', 'icono', 'tituloanexo', 'textoanexo', 'estado', 'soporte_id'];
+    protected $fillable = [ 'item_soporte','titulo', 'contenido', 'enlace', 'tituloenlace', 'icono', 'tituloanexo', 'textoanexo', 'estado', 'soporte_id'];
 
     public function Soporte()
     {

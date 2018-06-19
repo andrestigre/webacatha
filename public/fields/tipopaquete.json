@@ -1,0 +1,38 @@
+{
+    "fields": [
+        {
+            "name": "tipo_paquete",
+            "type": "string"
+        },
+        {
+            "name": "detalle",
+            "type": "text"
+        },
+        {
+            "name": "enlace",
+            "type": "text"
+        },
+        {
+            "name": "totuloenlace",
+            "type": "text"
+        },
+        {
+            "name": "activo",
+            "type": "boolean"
+        },
+        {
+            "name": "titulofinal",
+            "type": "text"
+        }
+    ],
+    "validations": [
+        {
+            "field": "tipo_paquete",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "detalle",
+            "rules": "required"
+        }
+    ]
+}   

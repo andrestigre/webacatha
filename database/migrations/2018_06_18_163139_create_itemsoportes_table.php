@@ -14,6 +14,7 @@ class CreateItemsoportesTable extends Migration
     {
         Schema::create('itemsoportes', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('item_soporte')->nullable();
             $table->text('titulo')->nullable();
             $table->text('contenido')->nullable();
             $table->text('enlace')->nullable();

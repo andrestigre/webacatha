@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ItemComprobanteTableSeeder::class);
         $this->call(SoporteTableSeeder::class);
         $this->call(ItemsoporteTableSeeder::class);
+        $this->call(TipopaqueteTableSeeder::class);
     }
 }

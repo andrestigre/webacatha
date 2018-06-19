@@ -36,7 +36,7 @@ class ItemsoporteController extends Controller
     public function updateitemcrt(Request $request, $id){
         if($request->ajax()){
             $itemsoporte = Itemsoporte::find($id);
-            $itemsoporte->item_soporte = $request->item_soporte;
+            $itemsoporte->item_soporte = $request->titulo;
             $itemsoporte->titulo = $request->titulo;
             $itemsoporte->contenido = $request->contenido;
             $itemsoporte->enlace = $request->enlace;

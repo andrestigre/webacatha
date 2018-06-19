@@ -170,11 +170,21 @@ return [
                                 ],
                             ],
                         ],
+                        [
+                            'text' => 'Paquetes',
+                            'url'  => 'admin/paquete',
+                        ],
                     ],
                 ],
                 [
-                    'text' => 'Level One',
+                    'text' => 'Parametros',
                     'url'  => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Tipo paquete',
+                            'url'  => 'admin/tipopaquete',
+                        ],
+                    ],
                 ],
             ],
         ],
