@@ -66,6 +66,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/delete_itemsop', 'AdminAuth\\ItemsoporteController@delete_itemcrt');
   Route::resource('/tipopaquete', 'AdminAuth\\TipopaqueteController');
   Route::resource('/paquete', 'AdminAuth\\PaqueteController');
+  Route::resource('/caracteristica-paquete', 'AdminAuth\\CaracteristicaPaqueteController');
 });
 
 Route::group(['prefix' => 'customer'], function () {
@@ -81,6 +82,7 @@ Route::group(['prefix' => 'customer'], function () {
   Route::get('/password/reset', 'CustomerAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
 });
+
 
 
 

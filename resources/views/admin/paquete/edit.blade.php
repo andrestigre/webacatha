@@ -1,15 +1,18 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
-    <div class="container">
         <div class="row">
-            @include('admin.sidebar')
 
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header">Edit Paquete #{{ $paquete->id }}</div>
-                    <div class="card-body">
-                        <a href="{{ url('/admin/paquete') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Editar Paquete #{{ $paquete->id }}</div>
+                    <div class="panel-body">
+                        <a href="{{ url('/admin/paquete') }}" title="Atras"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Atras</button></a>
+
+                        <a href="#" title="Add Característica"><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createItemCaracteristica"><i class="fa fa-plus" aria-hidden="true"></i> Add Característica</button></a>
+
+                <a href="#" title="Ver Característica"><button id="btn_veritemchar" class="btn btn-primary btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver Características</button></a>
+
                         <br />
                         <br />
 
@@ -21,17 +24,31 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/admin/paquete/' . $paquete->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            {{ csrf_field() }}
 
-                            @include ('admin.paquete.form', ['submitButtonText' => 'Update'])
+                            {!! Form::model($paquete, [
+                    'method' => 'PATCH',
+                    'url' => ['/admin/paquete', $paquete->id],
+                    'class' => 'form-horizontal',
+                    'files' => true
+                    ]) !!}
 
-                        </form>
+                            @include ('admin.paquete.form', ['submitButtonText' => 'Actualizar'])
 
+                            <div id="listitemspaquete">
+
+
+                            </div>
+
+                        {!! Form::close() !!}
+                        
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+    @include('admin.paquete.modal')
+
+
+
 @endsection

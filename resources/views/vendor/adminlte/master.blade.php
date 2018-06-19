@@ -83,6 +83,9 @@ $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
     <script src="{{ asset('js/cruditemcr.js') }}"></script>
     <script src="{{ asset('js/cruditemcomp.js') }}"></script>
     <script src="{{ asset('js/cruditemsoporte.js') }}"></script>
+    <script src="{{ asset('js/crudcharpaquete') }}"></script>
+    {{--
+        --}}
 
 
 

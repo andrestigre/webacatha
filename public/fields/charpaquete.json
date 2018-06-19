@@ -1,0 +1,31 @@
+
+{
+    "fields": [
+        {
+            "name": "car_paquete",
+            "type": "string"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        },
+        {
+            "name": "paquete_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "paquete_id",
+            "references": "id",
+            "on": "paquetes"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Paquete",
+            "type": "belongsTo",
+            "class": "App\\Paquete"
+        }
+    ]
+}

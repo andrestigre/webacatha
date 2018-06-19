@@ -20,5 +20,6 @@ php artisan crud:generate Tipopaquete --fields_from_file="C:\xampp\htdocs\webaca
 
 php artisan crud:generate Paquete --fields_from_file="C:\xampp\htdocs\webacatha\public\fields\paquete.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
 
+php artisan crud:generate CaracteristicaPaquete --fields_from_file="C:\xampp\htdocs\webacatha\public\fields\charpaquete.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
 
 C:\xampp\htdocs\webacatha\public\fields\tipopaquete.json

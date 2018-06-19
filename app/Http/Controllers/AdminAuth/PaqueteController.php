@@ -56,10 +56,20 @@ class PaqueteController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'precio' => 'nullable|numeric|min:0'
+        ]);
+        
         
         $requestData = $request->all();
         
-        Paquete::create($requestData);
+
+        try {
+            Paquete::create($requestData);
+            flash('Guardado con exito')->success();
+        } catch (\Exception $e) {
+            flash('No se pudo realizar la peticion')->warning();
+        }
 
         return redirect('admin/paquete')->with('flash_message', 'Paquete added!');
     }
@@ -88,8 +98,8 @@ class PaqueteController extends Controller
     public function edit($id)
     {
         $paquete = Paquete::findOrFail($id);
-
-        return view('admin.paquete.edit', compact('paquete'));
+        $tipospaquetes = Tipopaquete::where('activo','1')->pluck('tipo_paquete', 'id');
+        return view('admin.paquete.edit', compact('paquete','tipospaquetes'));
     }
 
     /**
@@ -102,11 +112,19 @@ class PaqueteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'precio' => 'nullable|numeric|min:0'
+        ]);
         
-        $requestData = $request->all();
-        
-        $paquete = Paquete::findOrFail($id);
-        $paquete->update($requestData);
+        $requestData = $request->all();       
+
+        try {
+            $paquete = Paquete::findOrFail($id);
+            $paquete->update($requestData);
+            flash('Guardado con exito')->success();
+        } catch (\Exception $e) {
+            flash('No se pudo realizar la peticion')->warning();
+        }
 
         return redirect('admin/paquete')->with('flash_message', 'Paquete updated!');
     }
