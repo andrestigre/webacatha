@@ -10,6 +10,53 @@ use Illuminate\Http\Request;
 
 class CaracteristicaPaqueteController extends Controller
 {
+    public function get_toreajax(Request $request){
+        if($request->ajax()){
+            $perPage = 25;
+            $caracteristicapaquete = CaracteristicaPaquete::where('paquete_id', $request->id)->latest()->paginate($perPage);
+            return view('admin.paquete.itemchar',compact('caracteristicapaquete'));
+        }
+    }
+
+    public function storeajax(Request $request)
+    {
+        if($request->ajax()){
+            $caracteristicapaquete = CaracteristicaPaquete::create($request->all());
+            return response()->json($caracteristicapaquete);
+        }    
+    }
+
+    public function select_itemcrt(Request $request){
+        if($request->ajax()){
+            $caracteristicapaquete = CaracteristicaPaquete::where('id', $request->id)->first();
+            return response()->json($caracteristicapaquete);
+        }
+    }
+
+    public function updateitemcrt(Request $request, $id){
+        if($request->ajax()){
+            $caracteristicapaquete = CaracteristicaPaquete::find($id);
+            $caracteristicapaquete->car_paquete = $request->car_paquete;
+            $caracteristicapaquete->paquete_id = $request->paquete_id;
+            $caracteristicapaquete->estado = $request->estado;
+
+            $resultado = $caracteristicapaquete->save();
+
+                
+            if($resultado){
+                return response()->json(['success'=>'true','paquete_id'=>$request->paquete_id,'item'=>$caracteristicapaquete]);
+            }else{
+                return response()->json(['success'=>'false']);
+            }
+        }
+    }
+
+    public function delete_itemcrt(Request $request){
+        if($request->ajax()){
+            $caracteristicapaquete = CaracteristicaPaquete::where('id', $request->id)->delete();
+            return response()->json($caracteristicapaquete);
+        }
+    }
     /**
      * Display a listing of the resource.
      *

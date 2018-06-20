@@ -4,8 +4,13 @@
         <div class="row">
 
             <div class="col-md-12">
+
+                <div id="notifiitemcrt"></div>
+
                 <div class="panel panel-default">
-                    <div class="panel-heading">Editar Paquete #{{ $paquete->id }}</div>
+                    <div class="panel-heading">Editar Paquete #{{ $paquete->Tipopaquete->tipo_paquete }}</div>
+                    <input type="hidden" name="paquete_id" id="paquete_id" value="{{ $paquete->id }}">
+
                     <div class="panel-body">
                         <a href="{{ url('/admin/paquete') }}" title="Atras"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Atras</button></a>
 
@@ -49,6 +54,6 @@
 
     @include('admin.paquete.modal')
 
-
+    
 
 @endsection

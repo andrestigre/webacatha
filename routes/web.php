@@ -59,6 +59,11 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('/soporte', 'AdminAuth\\SoporteController');
   Route::resource('/itemsoporte', 'AdminAuth\\ItemsoporteController');
 
+  Route::get('/read_itemcharpaquete', 'AdminAuth\\CaracteristicaPaqueteController@get_toreajax');
+  Route::post('/storeitemcharpaquete', 'AdminAuth\\CaracteristicaPaqueteController@storeajax');
+  Route::get('/select_itemchar', 'AdminAuth\\CaracteristicaPaqueteController@select_itemcrt');
+  Route::get('/delete_itemchar', 'AdminAuth\\CaracteristicaPaqueteController@delete_itemcrt');
+  Route::post('/updateitemchar/{id}', 'AdminAuth\\CaracteristicaPaqueteController@updateitemcrt');
   Route::get('/read_itemsop', 'AdminAuth\\ItemsoporteController@get_toreajax');
   Route::post('/storeitemsop', 'AdminAuth\\ItemsoporteController@storeajax');
   Route::get('/select_itemsop', 'AdminAuth\\ItemsoporteController@select_itemcrt');
@@ -68,6 +73,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('/paquete', 'AdminAuth\\PaqueteController');
   Route::resource('/caracteristica-paquete', 'AdminAuth\\CaracteristicaPaqueteController');
 });
+
 
 Route::group(['prefix' => 'customer'], function () {
   Route::get('/login', 'CustomerAuth\LoginController@showLoginForm')->name('login');

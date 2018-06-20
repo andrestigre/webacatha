@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-    var soporte_id = $('#soporte_idprincipal').val();
-    recargar_itemsoporte(soporte_id)
+    var paquete_id = $('#paquete_id').val();
+    recargar_charpaquete(paquete_id)
     //recarga_itemscrt();
 
 });
@@ -11,13 +11,12 @@ $(document).ready(function () {
 
     ////----- Create the item caracteristica desde modal por ajaxs-----////
     
-
-    $('#btn-saveitemsop').click(function(e){
+    $('#btn-saveitemcharpaquete').click(function(e){
         e.preventDefault();
         var token = $("input[name=_token]").val();
-        var data = $('#formitrmsoporte').serialize();
-        var url = $('#formitrmsoporte').attr('action');
-        var post = $('#formitrmsoporte').attr('method');
+        var data = $('#formitemcharpaquete').serialize();
+        var url = $('#formitemcharpaquete').attr('action');
+        var post = $('#formitemcharpaquete').attr('method');
         console.log(url);
         $.ajax({
             type : post,
@@ -27,27 +26,34 @@ $(document).ready(function () {
             dataType : 'json',
             success: function (data) {
                 //console.clear();
-                recargar_itemsoporte(data.soporte_id);
-                $('#formitrmsoporte').trigger("reset");
-                $('#createItemSoporte').modal('hide').delay(3000).fadeOut(350);
+                recargar_charpaquete(data.paquete_id);
+                $('#formitemcharpaquete').trigger("reset");
+                $('#createItemCaracteristica').modal('hide').delay(3000).fadeOut(350);
                 showAlert('notifiitemcrt','success','Realizado con exito...');
             },
             error: function (data) {
                 console.log('Error:', data);
             }
         });
-
-                
     });
 
+    $('#btn_veritemchar').click(function () {
+        var token = $("input[name=_token]").val();
+        var paquete_id = $('#paquete_id').val();
+                console.log('Recarga');
+
+        recargar_charpaquete(paquete_id)
+    });
+
+
     
-    $('#btn-updateitemsop').click(function(e){
+    $('#btn-updateitemchar').click(function(e){
         e.preventDefault();
         var token = $("input[name=_token]").val();
-        var data = $('#formitrmsoporteupdate').serialize();
+        var data = $('#formitrmcharupdate').serialize();
         var id = $('#idmod').val();
 
-        var url = '/admin/updateitemsop/'+id;
+        var url = '/admin/updateitemchar/'+id;
         $.ajax({
             type : 'post',
             url : url,
@@ -59,10 +65,10 @@ $(document).ready(function () {
                 if(data.success == 'true'){
                     console.log('si llega');
                     //console.clear();
-                $('#formitrmsoporteupdate').trigger("reset");
-                $('#updateItemsoporte').modal('hide').delay(3000).fadeOut(350);
+                $('#formitrmcharupdate').trigger("reset");
+                $('#updateItemCaracteristica').modal('hide').delay(3000).fadeOut(350);
                 showAlert('notifiitemcrt','success','Realizado con exito...');
-                recargar_itemcomprobante(data.comprobante_id);
+                recargar_charpaquete(data.paquete_id);
                 
                 }
             },
@@ -72,56 +78,19 @@ $(document).ready(function () {
             }
         });
     });
-
-
-    /*$('#btn_veritemcrt').click(function () {
-        var token = $("input[name=_token]").val();
-        var comprobante_id = $('#comprobante_id').val();
-        var data = {
-            id: comprobante_id
-        };
-        $.ajax({
-            type : 'get',
-            url : '/admin/listartodocomp',
-            headers:{'X-CSRF-TOKEN':token},
-            data : data,
-            success: function (data) {
-                //console.clear();
-                console.log('carga correcta...');
-                $('#listitemscomprobantes').empty().html(data);
-            }
-        });
-    });
-    */
-
+    
 
     
 
 
 });
 
-/*
-function recarga_itemscrt(){
-    var token = $("input[name=_token]").val();
-    var data = '';
-    $.ajax({
-        type : 'get',
-        url : '/admin/listartodo',
-        headers:{'X-CSRF-TOKEN':token},
-        data : data,
-        success: function (data) {
-            console.log(data);
-            $('#listitemscaracteristicas').empty().html(data);
-        }
-    });
-    console.log('salto ajaxs');
-}
-*/
 
-function recargar_itemsoporte(id){
+
+function recargar_charpaquete(id){
         //recargar este div id=listitemssoportes
         var token = $("input[name=_token]").val();
-        var url = '/admin/read_itemsop';
+        var url = '/admin/read_itemcharpaquete';
         var data = {
             id: id
         };
@@ -133,7 +102,7 @@ function recargar_itemsoporte(id){
             data : data,
             success: function (data) {
                 //console.clear();
-                $('#listitemssoportes').empty().html(data);
+                $('#listitemspaquete').empty().html(data);
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -147,7 +116,7 @@ function recargar_itemsoporte(id){
 
     //DELETE ITEM CARACTERISTICAS Y ACTUALIZA LA TABLA DE VISUALIZACION//
 
-    var EliminarItemSop = function(id, name, soporteid){
+    var EliminarItemChar = function(id, name, paquete_id){
     
     $.alertable.confirm('Esta seguro de eliminar el registro?').then(function() {
         var token = $("input[name=_token]").val();
@@ -158,14 +127,14 @@ function recargar_itemsoporte(id){
 
         $.ajax({
             type: "get",
-            url: '/admin/delete_itemsop',
+            url: '/admin/delete_itemchar',
             headers:{'X-CSRF-TOKEN':token},
             data: data,
             dataType: 'json',
             success: function (data) {
                 console.clear();
                 showAlert('notifiitemcrt','success','Item eliminado con exito...');
-                recargar_itemsoporte(soporteid);
+                recargar_charpaquete(paquete_id);
 
             },
             error: function (data) {
@@ -181,41 +150,32 @@ function recargar_itemsoporte(id){
     //UPDATE ITEM CARACTERISTICAS Y ACTUALIZA LA TABLA DE VISUALIZACION//
 
 
-var EditarItemSop = function(id){
+var EditarItemChar = function(id){
     
     var token = $("input[name=_token]").val();
         var data = {
             id: id
         };
         console.clear();
-                $('#formitrmsoporteupdate').trigger("reset");
+                $('#formitrmcharupdate').trigger("reset");
 
 
         $.ajax({
             type: "get",
-            url: '/admin/select_itemsop',
+            url: '/admin/select_itemchar',
             headers:{'X-CSRF-TOKEN':token},
             data: data,
             dataType: 'json',
             success: function (data) {
                 //console.clear();
-                $("#titulomod").val(data.titulo);
-                $("#contenidomod").val(data.contenido);
-                $("#enlacemod").val(data.enlace);
-                $("#tituloenlacemod").val(data.tituloenlace);
-                $("#iconomod").val(data.icono);
-                $("#tituloanexomod").val(data.tituloanexo);
-                $("#textoanexomod").val(data.textoanexo);
-                $("#soporte_idmod").val(data.soporte_id);
+                $("#car_paquetemod").val(data.car_paquete);
                 $("#idmod").val(data.id);
+                $("#paquete_idmod").val(data.paquete_id);
                 if(data.estado=='1'){
-                    $('#formitrmsoporteupdate').find(':radio[id=estadomod][value="1"]').prop('checked', true);
+                    $('#formitrmcharupdate').find(':radio[id=estadomod][value="1"]').prop('checked', true);
                 }else{
-                    $('#formitrmsoporteupdate').find(':radio[id=estadomod][value="0"]').prop('checked', true);
+                    $('#formitrmcharupdate').find(':radio[id=estadomod][value="0"]').prop('checked', true);
                 }
-
-
-                $("#idmod").val(data.id);
                 console.log('copiado');
             },
             error: function (data) {
@@ -225,38 +185,31 @@ var EditarItemSop = function(id){
         });
 }
 
-var VerItemComp = function(id){
+
+var VerItemChar = function(id){
     var token = $("input[name=_token]").val();
         var data = {
             id: id
         };
         console.clear();
-                $('#formitrmcomprobanteview').trigger("reset");
+                $('#formitrmcharview').trigger("reset");
 
 
         $.ajax({
             type: "get",
-            url: '/admin/select_itemcomp',
+            url: '/admin/select_itemchar',
             headers:{'X-CSRF-TOKEN':token},
             data: data,
             dataType: 'json',
             success: function (data) {
-                $("#item_comprobantev").val(data.item_comprobante);
-                $("#contenidov").val(data.contenido);
-                $("#efectov").val(data.efecto);
-                $("#estadov").val(data.estado);
-                $("#comprobante_idv").val(data.comprobante_id);
-                if(data.estado=='1'){
-                    $('#formitrmcomprobanteupdate').find(':radio[id=estadov][value="1"]').prop('checked', true);
-                }else{
-                    $('#formitrmcomprobanteupdate').find(':radio[id=estadov][value="0"]').prop('checked', true);
-                }
-                if(data.textalinear=='1'){
-                    $('#formitrmcomprobanteupdate').find(':radio[id=textalinearv][value="1"]').prop('checked', true);
-                }else{
-                    $('#formitrmcomprobanteupdate').find(':radio[id=textalinearv][value="0"]').prop('checked', true);
-                }
+                $("#car_paquetev").val(data.car_paquete);
                 $("#idv").val(data.id);
+                $("#paquete_idv").val(data.paquete_id);
+                if(data.estado=='1'){
+                    $('#formitrmcharview').find(':radio[id=estadov][value="1"]').prop('checked', true);
+                }else{
+                    $('#formitrmcharview').find(':radio[id=estadov][value="0"]').prop('checked', true);
+                }
                 console.log('copiado');
             },
             error: function (data) {
@@ -265,3 +218,4 @@ var VerItemComp = function(id){
             }
         });
 }
+

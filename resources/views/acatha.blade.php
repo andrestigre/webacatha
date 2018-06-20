@@ -25,46 +25,46 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('acatha/css/style.css') }}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="{{ asset('acatha/css/style.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
 
-@include('layouts.partials.nav')
+    @include('layouts.partials.nav')
 
 
-@include('layouts.partials.slider')
+    @include('layouts.partials.slider')
 
-@if(!empty($caracteristicas))
-<section id="features" class="container services {{ $caracteristicas->section_color }}">
-    <div class="row">
-        {!! $caracteristicas->contenido !!}
-    </div>
-    <div class="row">
-        @if(!empty($itemscaracteristicas))
+    @if(!empty($caracteristicas))
+    <section id="features" class="container services {{ $caracteristicas->section_color }}">
+        <div class="row">
+            {!! $caracteristicas->contenido !!}
+        </div>
+        <div class="row">
+            @if(!empty($itemscaracteristicas))
             @foreach($itemscaracteristicas as $itemscaracteristica)
-                <div class="col-sm-3">
-                    <h2>{{ $itemscaracteristica->item_caracteristica }}</h2>
-                    <p>{{ $itemscaracteristica->detalle }}</p>
-                    <p>
-                        @if(!empty($itemscaracteristica->iconuno))<i class="{{ $itemscaracteristica->iconuno }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                        @if(!empty($itemscaracteristica->icondos))<i class="{{ $itemscaracteristica->icondos }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                        @if(!empty($itemscaracteristica->icontres))<i class="{{ $itemscaracteristica->icontres }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                        @if(!empty($itemscaracteristica->iconcuatro))<i class="{{ $itemscaracteristica->iconcuatro }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                        @if(!empty($itemscaracteristica->iconcinco))<i class="{{ $itemscaracteristica->iconcinco }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                        @if(!empty($itemscaracteristica->iconseis))<i class="{{ $itemscaracteristica->iconseis }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                    </p>
-                </div>
+            <div class="col-sm-3">
+                <h2>{{ $itemscaracteristica->item_caracteristica }}</h2>
+                <p>{{ $itemscaracteristica->detalle }}</p>
+                <p>
+                    @if(!empty($itemscaracteristica->iconuno))<i class="{{ $itemscaracteristica->iconuno }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                    @if(!empty($itemscaracteristica->icondos))<i class="{{ $itemscaracteristica->icondos }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                    @if(!empty($itemscaracteristica->icontres))<i class="{{ $itemscaracteristica->icontres }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                    @if(!empty($itemscaracteristica->iconcuatro))<i class="{{ $itemscaracteristica->iconcuatro }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                    @if(!empty($itemscaracteristica->iconcinco))<i class="{{ $itemscaracteristica->iconcinco }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                    @if(!empty($itemscaracteristica->iconseis))<i class="{{ $itemscaracteristica->iconseis }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                </p>
+            </div>
             @endforeach
-        @endif
-    </div>
-</section>
-@endif
+            @endif
+        </div>
+    </section>
+    @endif
 
 
-@if(!empty($caracteristicassub))
+    @if(!empty($caracteristicassub))
     <section  class="container features {{ $caracteristicassub->section_color }}">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -75,14 +75,14 @@
         <div class="row">
             <div class="col-md-3 text-center wow fadeInLeft">
                 @if(!empty($itemscaracteristicasleft))
-                    @foreach($itemscaracteristicasleft as $itemscaracteristicaleft)
-                        <div>
-                            @if(!empty($itemscaracteristicaleft->iconuno))
-                            <i class="{{ $itemscaracteristicaleft->iconuno }}" aria-hidden="true"></i>@endif
-                            <h2>{{ $itemscaracteristicaleft->item_caracteristica }}</h2>
-                            <p>{{ $itemscaracteristicaleft->detalle }}</p>
-                        </div>
-                    @endforeach
+                @foreach($itemscaracteristicasleft as $itemscaracteristicaleft)
+                <div>
+                    @if(!empty($itemscaracteristicaleft->iconuno))
+                    <i class="{{ $itemscaracteristicaleft->iconuno }}" aria-hidden="true"></i>@endif
+                    <h2>{{ $itemscaracteristicaleft->item_caracteristica }}</h2>
+                    <p>{{ $itemscaracteristicaleft->detalle }}</p>
+                </div>
+                @endforeach
                 @endif
             </div>
             <div class="col-md-6 text-center  wow zoomIn">
@@ -90,401 +90,441 @@
             </div>
             <div class="col-md-3 text-center wow fadeInRight">
                 @if(!empty($itemscaracteristicasrigth))
-                    @foreach($itemscaracteristicasrigth as $itemscaracteristicarigth)
-                        <div>
-                            @if(!empty($itemscaracteristicarigth->iconuno))
-                            <i class="{{ $itemscaracteristicarigth->iconuno }}" aria-hidden="true"></i>@endif
-                            <h2>{{ $itemscaracteristicarigth->item_caracteristica }}</h2>
-                            <p>{{ $itemscaracteristicarigth->detalle }}</p>
-                        </div>
-                    @endforeach
+                @foreach($itemscaracteristicasrigth as $itemscaracteristicarigth)
+                <div>
+                    @if(!empty($itemscaracteristicarigth->iconuno))
+                    <i class="{{ $itemscaracteristicarigth->iconuno }}" aria-hidden="true"></i>@endif
+                    <h2>{{ $itemscaracteristicarigth->item_caracteristica }}</h2>
+                    <p>{{ $itemscaracteristicarigth->detalle }}</p>
+                </div>
+                @endforeach
                 @endif
             </div>
         </div>
     </section>
-@endif
+    @endif
 
-@if(!empty($comprobante))
+    @if(!empty($comprobante))
 
-<section id="electronicos" class="{{ $comprobante->section_color }} features">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                {!! $comprobante->detalle !!}
+    <section id="electronicos" class="{{ $comprobante->section_color }} features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    {!! $comprobante->detalle !!}
+                </div>
+            </div>
+            <div class="row features-block">
+                <div class="col-lg-6 features-text wow fadeInLeft">
+                    {!! $comprobante->contenido !!}
+                    @if(!empty($comprobante->enlace))
+                    <a href="{{ $comprobante->enlace }}" class="btn btn-primary">Saber m&aacute;s</a>
+                    @endif
+                </div>
+                <div class="col-lg-6 text-right wow fadeInRight">
+                    <img src="{{ asset($comprobante->imagen) }}" alt="dashboard" class="img-responsive pull-right">
+                </div>
             </div>
         </div>
-        <div class="row features-block">
-            <div class="col-lg-6 features-text wow fadeInLeft">
-                {!! $comprobante->contenido !!}
-                @if(!empty($comprobante->enlace))
-                <a href="{{ $comprobante->enlace }}" class="btn btn-primary">Saber m&aacute;s</a>
+    </section>
+
+
+
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>&nbsp;</h1>
+                    <p>{{ $comprobante->titulofinal }} </p>
+                </div>
+            </div>
+            <div class="row features-block">
+                @if(!empty($itemscomprobante))
+                @foreach($itemscomprobante as $itemscomp)
+                @if(($itemscomp->textalinear)=='0') <?php  $align='col-lg-2 features-text text-right'; ?> @endif
+                @if(($itemscomp->textalinear)=='1') <?php  $align='col-lg-2 features-text text-left'; ?> @endif
+                @if(($itemscomp->textalinear)=='2') <?php  $align='col-lg-4 text-center text-right'; ?> @endif
+                <div class="<?php echo $align; ?> wow {{ $itemscomp->efecto }}">
+                    <h2>{{ $itemscomp->item_comprobante }}</h2>
+                    <p>{{ $itemscomp->contenido }}</p>
+                </div>
+                @endforeach
                 @endif
             </div>
-            <div class="col-lg-6 text-right wow fadeInRight">
-                <img src="{{ asset($comprobante->imagen) }}" alt="dashboard" class="img-responsive pull-right">
-            </div>
         </div>
-    </div>
-</section>
+    </section>
+    @endif
 
+    @if(!empty($soporte))
 
-
-<section class="features">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>&nbsp;</h1>
-                <p>{{ $comprobante->titulofinal }} </p>
+    <section id="soporte" class="timeline {{ $soporte->section_color }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>{{ $soporte->titulo }}</h1>
+                    <p>{{ $soporte->detalle }}</p>
+                </div>
             </div>
-        </div>
-        <div class="row features-block">
-            @if(!empty($itemscomprobante))
-                @foreach($itemscomprobante as $itemscomp)
-                    @if(($itemscomp->textalinear)=='0') <?php  $align='col-lg-2 features-text text-right'; ?> @endif
-                    @if(($itemscomp->textalinear)=='1') <?php  $align='col-lg-2 features-text text-left'; ?> @endif
-                    @if(($itemscomp->textalinear)=='2') <?php  $align='col-lg-4 text-center text-right'; ?> @endif
-                    <div class="<?php echo $align; ?> wow {{ $itemscomp->efecto }}">
-                        <h2>{{ $itemscomp->item_comprobante }}</h2>
-                        <p>{{ $itemscomp->contenido }}</p>
+            <div class="row features-block">
+                <div class="col-lg-12">
+                    <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+
+                        @foreach($itemsoportes as $itemsoporte)
+                        <div class="vertical-timeline-block">
+                            <div class="vertical-timeline-icon navy-bg">
+                                <i class="{{ $itemsoporte->icono }}"></i>
+                            </div>
+
+                            <div class="vertical-timeline-content">
+                                <h2>{{ $itemsoporte->titulo }}</h2>
+                                <p>{!! $itemsoporte->contenido !!}
+                                </p>
+                                @if(!empty($itemsoporte->enlace))
+                                <a href="{{ $itemsoporte->enlace }}" class="btn btn-xs btn-primary">  {{ $itemsoporte->tituloenlace }} </a>
+                                @endif
+                                <span class="vertical-date"> {{ $itemsoporte->tituloanexo }} <br/> <small>{{ $itemsoporte->textoanexo }}</small> </span>
+                            </div>
+                        </div>
+                        @endforeach
+
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
+
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+
+            <div class="row m-b-lg">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Precios</h1>
+                </div>
+            </div>
+            <div class="row">
+                @if(!empty($paquetes))
+                @foreach($paquetes as $itempaquete)
+                <div class="col-lg-3 wow zoomIn">
+                    <ul class="pricing-plan list-unstyled">
+                        <li class="pricing-title">
+                            {{ $itempaquete->Tipopaquete->tipo_paquete }}
+                        </li>
+                        <li class="pricing-desc">
+                            {!! $itempaquete->detalle !!}
+                        </li>
+                        <li class="pricing-price">
+                            <span>
+                                @if(!empty($itempaquete->precio))
+                                    ${{ number_format($itempaquete->precio,2) }}
+                                @else
+                                    Precio por definir
+                                @endif
+                            </span> / {{ $itempaquete->periodo }}
+                        </li>
+                        
+                        @if(!empty($caracteristicapaquetes))
+                            @foreach($caracteristicapaquetes as $itemchar)
+                                @if($itempaquete->id == $itemchar->paquete_id)
+                                    <li>
+                                        {{ $itemchar->car_paquete }}
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endif
+
+                        <li>
+                            <a class="btn btn-primary btn-xs" href="{{ $itempaquete->Tipopaquete->enlace }}">{{ $itempaquete->Tipopaquete->totuloenlace }}</a>
+                        </li>
+                    </ul>
+                </div>
                 @endforeach
-            @endif
-        </div>
-    </div>
-</section>
-@endif
-
-@if(!empty($soporte))
-
-<section id="soporte" class="timeline {{ $soporte->section_color }}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>{{ $soporte->titulo }}</h1>
-                <p>{{ $soporte->detalle }}</p>
-            </div>
-        </div>
-        <div class="row features-block">
-            <div class="col-lg-12">
-                <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
-
-                    @foreach($itemsoportes as $itemsoporte)
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="{{ $itemsoporte->icono }}"></i>
-                        </div>
-
-                        <div class="vertical-timeline-content">
-                            <h2>{{ $itemsoporte->titulo }}</h2>
-                            <p>{!! $itemsoporte->contenido !!}
-                            </p>
-                            @if(!empty($itemsoporte->enlace))
-                            <a href="{{ $itemsoporte->enlace }}" class="btn btn-xs btn-primary">  {{ $itemsoporte->tituloenlace }} </a>
-                            @endif
-                            <span class="vertical-date"> {{ $itemsoporte->tituloanexo }} <br/> <small>{{ $itemsoporte->textoanexo }}</small> </span>
-                        </div>
+                {{-- 
+                    <div class="col-lg-3 wow zoomIn">
+                        <ul class="pricing-plan list-unstyled">
+                            <li class="pricing-title">
+                                Basic
+                            </li>
+                            <li class="pricing-desc">
+                                Ventas, Compras, Clientes, Proveedores, Impuestos
+                                (ideal para registrar tus gastos personales)
+                            </li>
+                            <li class="pricing-price">
+                                <span>$25</span> / mes
+                            </li>
+                            <li>
+                                Backups (mensuales)
+                            </li>
+                            <li>
+                                App POS(Punto de Venta)
+                            </li>
+                            <li>
+                                Capacitaciones
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
+                            </li>
+                        </ul>
                     </div>
-                    @endforeach
+
+                    <div class="col-lg-3 wow zoomIn">
+                        <ul class="pricing-plan list-unstyled selected">
+                            <li class="pricing-title">
+                                Flex
+                            </li>
+                            <li class="pricing-desc">
+                                Ventas, Compras, Clientes, Proveedores, Contabilidad, Inventarios, Caja - Bancos, Impuestos
+                            </li>
+                            <li class="pricing-price">
+                                <span>$35</span> / mes
+                            </li>
+                            <li>
+                                Reportes
+                            </li>
+                            <li>
+                                Backups (semanales)
+                            </li>
+                            <li>
+                                App Mobile
+                            </li>
+                            <li>
+                                App POS(Punto de Venta)
+                            </li>
+                            <li>
+                                Capacitaciones
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 wow zoomIn">
+                        <ul class="pricing-plan list-unstyled">
+                            <li class="pricing-title">
+                                Lite
+                            </li>
+                            <li class="pricing-desc">
+                            Ventas, Compras, Clientes, Proveedores, Contabilidad, Inventarios, Caja - Bancos, Impuestos, </br>
+                            Activos Fijos, N&oacute;mina
+                        </li>
+                        <li class="pricing-price">
+                            <span>$59</span> / mes
+                        </li>
+                        <li>
+                            Reportes
+                        </li>
+                        <li>
+                            Backups (Diarios)
+                        </li>
+                        <li>
+                            App Mobile
+                        </li>
+                        <li>
+                            App POS(Punto de Venta, Biométrico)
+                        </li>
+                        <li>
+                            Capacitaciones
+                        </li>
+                        <li>
+                            <strong>Plataforma de Soporte</strong>
+                        </li>
+                        <li class="plan-action">
+                            <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 wow zoomIn">
+                    <ul class="pricing-plan list-unstyled">
+                        <li class="pricing-title">
+                            Modular
+                        </li>
+                        <li class="pricing-desc">
+                            Dise&ntilde;a tu paquete a la medida
+                        </li>
+                        <li>
+                            Reportes, Indicadores de gestión (Dashboards)
+                        </li>
+                        <li>
+                            Backups (Diarios)
+                        </li>
+                        <li>
+                            App Mobile
+                        </li>
+                        <li>
+                            App POS(Punto de Venta, Biométrico, Gift Cards)
+                        </li>
+                        <li>
+                            Capacitaci&oacute;n, Seguimiento
+                        </li>
+                        <li>
+                            <strong>Plataforma de Soporte</strong>
+                        </li>
+                        <li>
+                            <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
+                        </li>
+                    </ul>
+                </div>
+                --}}
+                @endif
+            </div>
+            <div class="row m-t-lg">
+                <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
+                    <p>* Todos los planes inician con 3 ususarios.</p>
+                    <p>** No incluyen Modulos Especiales</p>
+                    <p>*** Los valores no incluyen impuestos</p>
+                    <p>**** Costo por documento emitido 0.01 ctv para Facturacion Electrónica</p>
 
                 </div>
             </div>
         </div>
-    </div>
-</section>
-@endif
 
+    </section>
 
-<section id="pricing" class="pricing">
-    <div class="container">
-        <div class="row m-b-lg">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>Precios</h1>
+    <section id="contact" class="gray-section contact">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Cont&aacute;ctanos</h1>
+                    <p>Estamos prestos para servirte en donde te encuentres solo comun&iacute;cate con nosotros.</p>
+                </div>
+            </div>
+            <div class="row m-b-lg">
+                <div class="col-lg-2 col-lg-offset-3">
+                    <address>
+                        <strong><span class="navy">Acatha Inc.</span></strong><br/>
+                        4th Floor Torres del Mall del Sol <br/>Avenida Joaquin Orratia y<br/>
+                        Juan Tanca Marengo
+                        Guayaquil, Ecuador<br/>
+                        <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
+                    </address>
+                </div>
+                <div class="col-lg-2">
+                    <address>
+                        <strong><span class="navy">AustroSoft, Cia Ltda.</span></strong><br/>
+                        Av Francisco Moscoso, No 6-25 y <br/>Av 10 de Agosto<br/>
+                        Cuenca, Ecuador 11204<br/>
+                        <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
+                        <abbr title="Phone">T:</abbr> +593 7 281-8447
+                    </address>
+                </div>
+                <div class="col-lg-2">
+                    <p class="text-color">
+                        <strong>ACATHA</strong> es un universo de aplicativos para la gesti&oacute;n administrativa, financiera y contable que te permitir&aacute; realizar tareas complejas de forma sencilla, integral y precisa.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="mailto:comercializacion@austrosoft.com.ec" class="btn btn-primary">Escr&iacute;benos</a>
+                    <p class="m-t-sm">
+                        Siguenos en
+                    </p>
+                    <ul class="list-inline social-icon">
+                        <li><a href="https://twitter.com/acathaec" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://www.facebook.com/acathaec" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                    <p><strong>&copy; 2016 AustroSoft</strong><br/> {{ $empresa['descripcion'] }}</p>
+                </div>
+                <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Mv9KjRtHPXg1G1zkGoMiZyrIUAgT0BImsRWvsiVI3PpH6FD0fRG7Qe2NSpRL"></script></span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 wow zoomIn">
-                <ul class="pricing-plan list-unstyled">
-                    <li class="pricing-title">
-                        Basic
-                    </li>
-                    <li class="pricing-desc">
-                        Ventas, Compras, Clientes, Proveedores, Impuestos
-                        (ideal para registrar tus gastos personales)
-                    </li>
-                    <li class="pricing-price">
-                        <span>$25</span> / mes
-                    </li>
-                    <li>
-                        Backups (mensuales)
-                    </li>
-                    <li>
-                        App POS(Punto de Venta)
-                    </li>
-                    <li>
-                        Capacitaciones
-                    </li>
-                    <li>
-                        <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                    </li>
-                </ul>
+    </section>
+    <!-- The Modal Contáctanos -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">×</span>
+                <h3>Contáctanos</h3>
             </div>
-
-            <div class="col-lg-3 wow zoomIn">
-                <ul class="pricing-plan list-unstyled selected">
-                    <li class="pricing-title">
-                        Flex
-                    </li>
-                    <li class="pricing-desc">
-                        Ventas, Compras, Clientes, Proveedores, Contabilidad, Inventarios, Caja - Bancos, Impuestos
-                    </li>
-                    <li class="pricing-price">
-                        <span>$35</span> / mes
-                    </li>
-                    <li>
-                        Reportes
-                    </li>
-                    <li>
-                        Backups (semanales)
-                    </li>
-                    <li>
-                        App Mobile
-                    </li>
-                    <li>
-                        App POS(Punto de Venta)
-                    </li>
-                    <li>
-                        Capacitaciones
-                    </li>
-                    <li>
-                        <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                    </li>
-                </ul>
+            <div class="modal-body">
+                <form name="signup_frm" id="signup_frm" method="post" >
+                    <fieldset>
+                        <div class="form-group">
+                            <label>Nombres Y Apellidos<span class="required">*</span></label>
+                            <input type="text" class="form-control" name="nombres" id="nombres">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono<span class="required">*</span></label>
+                            <input type="text" class="form-control" name="telefono" id="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label>Email<span class="required">*</span></label>
+                            <input type="email" class="form-control" name="email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Ciudad<span class="required">*</span></label>
+                            <input type="ciudad" class="form-control" name="ciudad" id="ciudad">
+                        </div>
+                        <div id="error">
+                            <!-- error will be shown here ! -->
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="" data-theme="dark"></div>
+                        <button type="submit" name="register_btn" id="register_btn" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                    </fieldset>
+                </form>
             </div>
-
-            <div class="col-lg-3 wow zoomIn">
-                <ul class="pricing-plan list-unstyled">
-                    <li class="pricing-title">
-                        Lite
-                    </li>
-                    <li class="pricing-desc">
-                        Ventas, Compras, Clientes, Proveedores, Contabilidad, Inventarios, Caja - Bancos, Impuestos, </br>
-                        Activos Fijos, N&oacute;mina
-                    </li>
-                    <li class="pricing-price">
-                        <span>$59</span> / mes
-                    </li>
-                    <li>
-                        Reportes
-                    </li>
-                    <li>
-                        Backups (Diarios)
-                    </li>
-                    <li>
-                        App Mobile
-                    </li>
-                    <li>
-                        App POS(Punto de Venta, Biométrico)
-                    </li>
-                    <li>
-                        Capacitaciones
-                    </li>
-                    <li>
-                        <strong>Plataforma de Soporte</strong>
-                    </li>
-                    <li class="plan-action">
-                        <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-lg-3 wow zoomIn">
-                <ul class="pricing-plan list-unstyled">
-                    <li class="pricing-title">
-                        Modular
-                    </li>
-                    <li class="pricing-desc">
-                        Dise&ntilde;a tu paquete a la medida
-                    </li>
-                    <li>
-                        Reportes, Indicadores de gestión (Dashboards)
-                    </li>
-                    <li>
-                        Backups (Diarios)
-                    </li>
-                    <li>
-                        App Mobile
-                    </li>
-                    <li>
-                        App POS(Punto de Venta, Biométrico, Gift Cards)
-                    </li>
-                    <li>
-                        Capacitaci&oacute;n, Seguimiento
-                    </li>
-                    <li>
-                        <strong>Plataforma de Soporte</strong>
-                    </li>
-                    <li>
-                        <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row m-t-lg">
-            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
-                <p>* Todos los planes inician con 3 ususarios.</p>
-                <p>** No incluyen Modulos Especiales</p>
-                <p>*** Los valores no incluyen impuestos</p>
-                <p>**** Costo por documento emitido 0.01 ctv para Facturacion Electrónica</p>
+            <div class="modal-footer">
 
             </div>
         </div>
     </div>
 
-</section>
 
-<section id="contact" class="gray-section contact">
-    <div class="container">
-        <div class="row m-b-lg">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>Cont&aacute;ctanos</h1>
-                <p>Estamos prestos para servirte en donde te encuentres solo comun&iacute;cate con nosotros.</p>
-            </div>
-        </div>
-        <div class="row m-b-lg">
-            <div class="col-lg-2 col-lg-offset-3">
-                <address>
-                    <strong><span class="navy">Acatha Inc.</span></strong><br/>
-                    4th Floor Torres del Mall del Sol <br/>Avenida Joaquin Orratia y<br/>
-                    Juan Tanca Marengo
-                    Guayaquil, Ecuador<br/>
-                    <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
-                </address>
-            </div>
-            <div class="col-lg-2">
-                <address>
-                    <strong><span class="navy">AustroSoft, Cia Ltda.</span></strong><br/>
-                    Av Francisco Moscoso, No 6-25 y <br/>Av 10 de Agosto<br/>
-                    Cuenca, Ecuador 11204<br/>
-                    <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
-                    <abbr title="Phone">T:</abbr> +593 7 281-8447
-                </address>
-            </div>
-            <div class="col-lg-2">
-                <p class="text-color">
-                    <strong>ACATHA</strong> es un universo de aplicativos para la gesti&oacute;n administrativa, financiera y contable que te permitir&aacute; realizar tareas complejas de forma sencilla, integral y precisa.
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <a href="mailto:comercializacion@austrosoft.com.ec" class="btn btn-primary">Escr&iacute;benos</a>
-                <p class="m-t-sm">
-                    Siguenos en
-                </p>
-                <ul class="list-inline social-icon">
-                    <li><a href="https://twitter.com/acathaec" target="_blank"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="https://www.facebook.com/acathaec" target="_blank"><i class="fa fa-facebook"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-                <p><strong>&copy; 2016 AustroSoft</strong><br/> {{ $empresa['descripcion'] }}</p>
-            </div>
-            <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Mv9KjRtHPXg1G1zkGoMiZyrIUAgT0BImsRWvsiVI3PpH6FD0fRG7Qe2NSpRL"></script></span>
-        </div>
-    </div>
-</section>
-<!-- The Modal Contáctanos -->
-<div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">×</span>
-            <h3>Contáctanos</h3>
-        </div>
-        <div class="modal-body">
-            <form name="signup_frm" id="signup_frm" method="post" >
-                <fieldset>
-                    <div class="form-group">
-                        <label>Nombres Y Apellidos<span class="required">*</span></label>
-                        <input type="text" class="form-control" name="nombres" id="nombres">
-                    </div>
-                    <div class="form-group">
-                        <label>Teléfono<span class="required">*</span></label>
-                        <input type="text" class="form-control" name="telefono" id="telefono">
-                    </div>
-                    <div class="form-group">
-                        <label>Email<span class="required">*</span></label>
-                        <input type="email" class="form-control" name="email" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label>Ciudad<span class="required">*</span></label>
-                        <input type="ciudad" class="form-control" name="ciudad" id="ciudad">
-                    </div>
-                    <div id="error">
-                        <!-- error will be shown here ! -->
-                    </div>
-                    <div class="g-recaptcha" data-sitekey="" data-theme="dark"></div>
-                    <button type="submit" name="register_btn" id="register_btn" class="btn btn-primary btn-lg btn-block">Enviar</button>
-                </fieldset>
-            </form>
-        </div>
-        <div class="modal-footer">
+    <script src="{{ asset('acatha/js/jquery-2.1.1.js') }}"></script>
+    <script src="{{ asset('acatha/js/pace.min.js') }}"></script>
+    <script src="{{ asset('acatha/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('acatha/js/classie.js') }}"></script>
+    <script src="{{ asset('acatha/js/cbpAnimatedHeader.js') }}"></script>
+    <script src="{{ asset('acatha/js/wow.min.js') }}"></script>
+    <script src="{{ asset('acatha/js/inspinia.js') }}"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
+    <script src="{{ asset('acatha/js/dist/jquery.validate.js') }}"></script>
+    <script>
+        $.validator.setDefaults({
+            submitHandler: function()
+            {
+                var data = $("#signup_frm").serialize();
+                $.ajax({
 
-        </div>
-    </div>
-</div>
-
-
-<script src="{{ asset('acatha/js/jquery-2.1.1.js') }}"></script>
-<script src="{{ asset('acatha/js/pace.min.js') }}"></script>
-<script src="{{ asset('acatha/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('acatha/js/classie.js') }}"></script>
-<script src="{{ asset('acatha/js/cbpAnimatedHeader.js') }}"></script>
-<script src="{{ asset('acatha/js/wow.min.js') }}"></script>
-<script src="{{ asset('acatha/js/inspinia.js') }}"></script>
-<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
-<script src="{{ asset('acatha/js/dist/jquery.validate.js') }}"></script>
-<script>
-    $.validator.setDefaults({
-        submitHandler: function()
-        {
-            var data = $("#signup_frm").serialize();
-            $.ajax({
-
-                type : 'POST',
-                url  : 'register_process.php',
-                data : data,
-                beforeSend: function()
-                {
-                    $("#error").fadeOut();
-                    $("#register_btn").html('<i class="fa fa-lock"></i>  &nbsp; Comprobando ...');
-                },
-                success :  function(response)
-                {
-                    if(response=="ok")
+                    type : 'POST',
+                    url  : 'register_process.php',
+                    data : data,
+                    beforeSend: function()
                     {
-                        $("#register_btn").html('<i class="fa fa-spinner fa-spin"></i> Redireccionando ...');
-                        setTimeout(' window.location.href = "index.php?mail=revisar"; ',500);
-                    }else{
-                        $("#error").fadeIn(1000, function(){
-                            $("#error").html('<div class="alert alert-danger"><b>Lo sentimos!</b> '+response+'</div>');
-                            $("#register_btn").html('<i class="fa fa-lock"></i> &nbsp; Ingresar');
-                        });
+                        $("#error").fadeOut();
+                        $("#register_btn").html('<i class="fa fa-lock"></i>  &nbsp; Comprobando ...');
+                    },
+                    success :  function(response)
+                    {
+                        if(response=="ok")
+                        {
+                            $("#register_btn").html('<i class="fa fa-spinner fa-spin"></i> Redireccionando ...');
+                            setTimeout(' window.location.href = "index.php?mail=revisar"; ',500);
+                        }else{
+                            $("#error").fadeIn(1000, function(){
+                                $("#error").html('<div class="alert alert-danger"><b>Lo sentimos!</b> '+response+'</div>');
+                                $("#register_btn").html('<i class="fa fa-lock"></i> &nbsp; Ingresar');
+                            });
+                        }
                     }
-                }
-            });
-        }
-    });
-    $(document).ready(function() {
-        $('#password').keyup(function() {
+                });
+            }
+        });
+        $(document).ready(function() {
+            $('#password').keyup(function() {
             // set password variable
             var pswd = $(this).val();
             //validate the length
@@ -519,30 +559,30 @@
             $('#pswd_info').hide();
         });
     });
-    $().ready(function() {
-        $("#signup_frm").validate({
-            rules:{
-                identificacion: "required",
-                usuario: "required",
-                password: "required",
-                email: "required",
-                rpassword: {
-                    required: true,
-                    equalTo: "#password"
+        $().ready(function() {
+            $("#signup_frm").validate({
+                rules:{
+                    identificacion: "required",
+                    usuario: "required",
+                    password: "required",
+                    email: "required",
+                    rpassword: {
+                        required: true,
+                        equalTo: "#password"
+                    }
+                },
+                messages:{
+                    identificacion: "ingrese el número de identificación",
+                    usuario: "ingrese su usuario",
+                    password: "ingrese su password",
+                    email: "ingrese su correo",
+                    rpassword: "password y confirmación no coinciden"
                 }
-            },
-            messages:{
-                identificacion: "ingrese el número de identificación",
-                usuario: "ingrese su usuario",
-                password: "ingrese su password",
-                email: "ingrese su correo",
-                rpassword: "password y confirmación no coinciden"
-            }
+            });
         });
-    });
-</script>
-<script>
-    var modal = document.getElementById('myModal');
+    </script>
+    <script>
+        var modal = document.getElementById('myModal');
 
     // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
@@ -576,22 +616,22 @@
         n.queue=[];t=b.createElement(e);t.async=!0;
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window,document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1794353207471383');
-    fbq('track', 'PageView');
-</script>
-<noscript>
-    <img height="1" width="1"
-         src="https://www.facebook.com/tr?id=1794353207471383&ev=PageView
-&noscript=1"/>
-</noscript>
-<!-- End Facebook Pixel Code -->
-<link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
-<script src="https://api.motion.ai/sdk/webchat.js"></script>
-<script>
-    motionAI_Init('67694?color=62a8ea&sendBtn=Enviar&inputBox=Type%20something...&token=0a2290053fd302a4158c4c5b2df838b2',true,400,470,'https://www.acatha.com/img/chat.png');
-    motionAI_Open();
-</script>
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1794353207471383');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+        src="https://www.facebook.com/tr?id=1794353207471383&ev=PageView
+        &noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    <link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+    <script src="https://api.motion.ai/sdk/webchat.js"></script>
+    <script>
+        motionAI_Init('67694?color=62a8ea&sendBtn=Enviar&inputBox=Type%20something...&token=0a2290053fd302a4158c4c5b2df838b2',true,400,470,'https://www.acatha.com/img/chat.png');
+        motionAI_Open();
+    </script>
 
 </body>
 </html>

@@ -12,6 +12,8 @@ use App\Comprobante;
 use App\Itemcomprobante;
 use App\Soporte;
 use App\Itemsoporte;
+use App\Paquete;
+use App\CaracteristicaPaquete;
 
 class AcathaController extends Controller
 {
@@ -37,7 +39,11 @@ class AcathaController extends Controller
 
         $soporte = Soporte::where('activo','1')->first();
         $itemsoportes = Itemsoporte::where('soporte_id', $soporte->id)->where('estado','1')->get();
-        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante','itemscomprobante','soporte','itemsoportes'));
+
+        $paquetes = Paquete::where('estado', 1)->get();
+        $caracteristicapaquetes = CaracteristicaPaquete::where('estado', 1)->get();
+        
+        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante','itemscomprobante','soporte','itemsoportes','itemsoportes','paquetes','caracteristicapaquetes'));
     }
 
     /**
