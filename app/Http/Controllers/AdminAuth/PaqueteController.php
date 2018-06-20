@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Paquete;
 use App\Tipopaquete;
+use App\CaracteristicaPaquete;
 use Illuminate\Http\Request;
 
 class PaqueteController extends Controller
@@ -14,7 +15,11 @@ class PaqueteController extends Controller
     public function select_itemcrt(Request $request){
         if($request->ajax()){
             $paquete = Paquete::where('id', $request->id)->first();
-            return response()->json($paquete);
+        $caracteristicapaquetes = CaracteristicaPaquete::where('estado', 1)
+        ->where('paquete_id', $request->id)
+        ->get();
+
+            return response()->json(['paquete'=>$paquete, 'caracteristicas'=>$caracteristicapaquetes]);
         }
     }
     /**

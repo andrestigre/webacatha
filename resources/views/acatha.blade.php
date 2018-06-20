@@ -406,46 +406,76 @@
               <h3 class="modal-title">Comprar</h3>
           </div>
           <div class="modal-body">
-           <form id="formselecpaquete" class="form-horizontal" >
+             <form id="formselecpaquete" class="form-horizontal" >
+                <style type="text/css">
+                    fieldset { border:1px solid #000; }
 
-            <div class="form-group">
-                <label for="detalle" class="col-md-4 control-label">
-                    Detalle :
-                </label>
-                <div class="col-md-5">
-                    <label style="text-align: left;" id="detallelabel" class="control-label col-md-6"></label>
-                    <input type="hidden" name="detalle" id="detallemodal" value=""/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="precio" class="col-md-4 control-label">
-                    Precio :
-                </label>
-                <div class="col-md-5">
-                    <label style="text-align: left;" id="preciolabel" class="control-label col-md-6"></label>
-                    <input type="hidden" name="precio" id="preciomodal" value=""/>
-                </div>
-            </div>
+legend {
+    margin-left: 10px;
+    width: 100px;
+  padding: 0.2em 0.5em;
+  border:1px solid #000;
+  color: #000;
+  font-size:90%;
+  text-align:left;
 
-            <div class="form-group">
-                <label for="precio" class="col-md-4 control-label">
-                    Método de pago :
-                </label>
-                <div class="col-md-3">
-                    <select class="form-control col-md-3">
-                        <option value="0">PayPal</option>
-                        <option value="1">PayPhone</option>
-                        <option value="2">Depósito bancario</option>
-                        <option value="3">Transferencia bancaria</option>
-                    </select>
-                </div>
-            </div>
+  }
+  fieldset, legend{
+    border-radius: 7px 7px 7px 7px;
+-moz-border-radius: 7px 7px 7px 7px;
+-webkit-border-radius: 7px 7px 7px 7px;
+border: 1px solid #000;
+  }
+                </style>
+                <div class="row">
+                    
 
-            <input type="hidden" name="id" id="idmodal" value="" />
+                    <div class="col-md-5">
+                        <fieldset>
+                        <legend>Detalle</legend>
+                        <div class="form-group">
+                            <label for="detalle" class="col-md-4 control-label">
+                                Detalle :
+                            </label>
+                            <div class="col-md-8">
+                                <label style="text-align: left;" id="detallelabel" class="control-label col-md-12"></label>
+                                <input type="hidden" name="detalle" id="detallemodal" value=""/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio" class="col-md-4 control-label">
+                                Precio :
+                            </label>
+                            <div class="col-md-8">
+                                <label style="text-align: left;" id="preciolabel" class="control-label col-md-12"></label>
+                                <input type="hidden" name="precio" id="preciomodal" value=""/>
+                            </div>
+                        </div>
 
-        </form>
-    </div>
-    <div class="modal-footer">
+                        <div class="form-group">
+                            <label for="precio" class="col-md-4 control-label">
+                                Método de pago :
+                            </label>
+                            <div class="col-md-6">
+                                <select class="form-control col-md-3">
+                                    <option value="0">Depósito / Transferencia bancaria</option>
+                                    <option value="1">PayPal</option>
+                                    <option value="2">PayPhone</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" id="idmodal" value="" />
+
+                    </fieldset>
+                    </div>
+                </div>    
+
+
+
+
+            </form>
+        </div>
+        <div class="modal-footer">
             <!--
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary">Guardar</button>

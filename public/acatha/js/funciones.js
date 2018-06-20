@@ -43,31 +43,29 @@ var ComprarPaquete = function(id){
             data: data,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                //console.log(data.paquete.detalle);
+                //console.log(data.caracteristicas);
                 //console.clear();
                 
-                $("#detallemodal").val(data.detalle);
-                $("#preciomodal").val(data.precio);
-                $("#idmodal").val(data.id);
+                $("#detallemodal").val(data.paquete.detalle);
+                $("#preciomodal").val(data.paquete.precio);
+                $("#idmodal").val(data.paquete.id);
 
-                $("#detallelabel").text(data.detalle);
-                if((data.precio) == null){
+                $("#detallelabel").text(data.paquete.detalle);
+                if((data.paquete.precio) == null){
                 	var precio = "Por definir";
                 }else{
-                	var precio = data.precio+' / '+data.periodo;
+                	var precio = data.paquete.precio+' / '+data.paquete.periodo;
                 }
                 $("#preciolabel").text('$ '+precio);
-                /*
-                $('#formselecpaquete input[id=detallemodal]').val(data.detalle);
-                $('#formselecpaquete input[id=preciomodal]').val(data.precio);
-                $('#formselecpaquete input[id=idmodal]').val(data.id);
-                */
-                console.clear();
-                /*
-                document.getElementById("detallemodal").value = data.detalle;
-                document.getElementById("preciomodal").value = data.precio;
-                document.getElementById("idmodal").value = data.id;
-                */
+//recibir array cadena caracteristicas de paquete
+$.each(data.caracteristicas, function(key,value) {
+     console.log(value.car_paquete);
+}); 
+                	/*$.each(data.caracteristicas,function(){
+			      });*/
+                
+                //console.clear();
                 console.log('copiado');
             },
             error: function (data) {
