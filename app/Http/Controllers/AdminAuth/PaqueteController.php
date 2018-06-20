@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class PaqueteController extends Controller
 {
+    public function select_itemcrt(Request $request){
+        if($request->ajax()){
+            $paquete = Paquete::where('id', $request->id)->first();
+            return response()->json($paquete);
+        }
+    }
     /**
      * Display a listing of the resource.
      *

@@ -74,7 +74,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('/caracteristica-paquete', 'AdminAuth\\CaracteristicaPaqueteController');
   Route::resource('/precios', 'AdminAuth\\PreciosController');
   Route::resource('/contacto', 'AdminAuth\\ContactoController');
-
+  Route::get('/select_paquete', 'AdminAuth\\PaqueteController@select_itemcrt');
 });
 
 
