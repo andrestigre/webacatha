@@ -1,0 +1,34 @@
+{
+    "fields": [
+        {
+            "name": "item_nav",
+            "type": "string"
+        },
+        {
+            "name": "contenido",
+            "type": "text"
+        },
+        {
+            "name": "section_color",
+            "type": "select",
+            "options": {
+                "gray-section": "Gray",
+                "white": "White"            
+            }
+        },
+        {
+            "name": "activo",
+            "type": "boolean"
+        },
+        {
+            "name": "enlace",
+            "type": "string"
+        }
+    ],
+    "validations": [
+        {
+            "field": "item_nav",
+            "rules": "required|max:25"
+        }
+    ]
+}   

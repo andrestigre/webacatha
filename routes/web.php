@@ -72,6 +72,9 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('/tipopaquete', 'AdminAuth\\TipopaqueteController');
   Route::resource('/paquete', 'AdminAuth\\PaqueteController');
   Route::resource('/caracteristica-paquete', 'AdminAuth\\CaracteristicaPaqueteController');
+  Route::resource('/precios', 'AdminAuth\\PreciosController');
+  Route::resource('/contacto', 'AdminAuth\\ContactoController');
+
 });
 
 
@@ -88,6 +91,8 @@ Route::group(['prefix' => 'customer'], function () {
   Route::get('/password/reset', 'CustomerAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
 });
+
+
 
 
 

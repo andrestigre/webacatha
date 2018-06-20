@@ -5,11 +5,9 @@
 
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Crear Soporte</div>
+                    <div class="panel-heading">Editar Precio #{{ $precio->id }}</div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/soporte') }}" title="Atras">
-                            <button class="btn btn-warning btn-sm">
-                                <i class="fa fa-arrow-left" aria-hidden="true"></i> Atras</button></a>
+                        <a href="{{ url('/admin/precios') }}" title="Atras"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Atras</button></a>
                         <br />
                         <br />
 
@@ -21,13 +19,18 @@
                             </ul>
                         @endif
 
-                        
 
-                             {!! Form::open(['url' => '/admin/soporte', 'class' => 'form-horizontal', 'enctype'=>'multipart/form-data' , 'files' => true, 'method'=>'POST', 'accept-charset'=>'UTFF-8']) !!}
+                            {!! Form::model($precio, [
+                        'method' => 'PATCH',
+                        'url' => ['/admin/precios', $precio->id],
+                        'class' => 'form-horizontal',
+                        'files' => true
+                        ]) !!}
 
-                            @include ('admin.soporte.form')
+                            @include ('admin.precios.form', ['submitButtonText' => 'Actualizar'])
 
                         {!! Form::close() !!}
+                        
 
                     </div>
                 </div>

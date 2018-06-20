@@ -168,6 +168,14 @@ return [
                                     'text' => 'Soporte',
                                     'url'  => 'admin/soporte',
                                 ],
+                                [
+                                    'text' => 'Precios',
+                                    'url'  => 'admin/precios',
+                                ],
+                                [
+                                    'text' => 'Contacto',
+                                    'url'  => 'admin/contacto',
+                                ],
                             ],
                         ],
                         [

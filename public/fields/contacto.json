@@ -1,0 +1,75 @@
+
+{
+    "fields": [
+        {
+            "name": "titulo",
+            "type": "text"
+        },
+        {
+            "name": "contenido",
+            "type": "text"
+        },
+        {
+            "name": "enlaceboton",
+            "type": "string"
+        },
+        {
+            "name": "textoboton",
+            "type": "string"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        },
+        {
+            "name": "social_fb",
+            "type": "text"
+        },
+        {
+            "name": "social_tw",
+            "type": "text"
+        },
+        {
+            "name": "social_gg",
+            "type": "text"
+        },
+        {
+            "name": "social_in",
+            "type": "text"
+        },
+        {
+            "name": "latitud",
+            "type": "text"
+        },
+        {
+            "name": "longitud",
+            "type": "text"
+        },
+        {
+            "name": "section_color",
+            "type": "select",
+            "options": {
+                "gray-section": "Gray",
+                "white": "White"            
+            }
+        },
+        {
+            "name": "itemnav_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "itemnav_id",
+            "references": "id",
+            "on": "itemnavs"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Itemnav",
+            "type": "belongsTo",
+            "class": "App\\Itemnav"
+        }
+    ]
+}

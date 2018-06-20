@@ -195,14 +195,14 @@
     </section>
     @endif
 
-
+@if(!empty($precio))
     <section id="pricing" class="pricing">
         <div class="container">
 
             <div class="row m-b-lg">
                 <div class="col-lg-12 text-center">
                     <div class="navy-line"></div>
-                    <h1>Precios</h1>
+                    <h1>{{ $precio->Itemnav->item_nav }}</h1>
                 </div>
             </div>
             <div class="row">
@@ -242,149 +242,55 @@
                     </ul>
                 </div>
                 @endforeach
-                {{-- 
-                    <div class="col-lg-3 wow zoomIn">
-                        <ul class="pricing-plan list-unstyled">
-                            <li class="pricing-title">
-                                Basic
-                            </li>
-                            <li class="pricing-desc">
-                                Ventas, Compras, Clientes, Proveedores, Impuestos
-                                (ideal para registrar tus gastos personales)
-                            </li>
-                            <li class="pricing-price">
-                                <span>$25</span> / mes
-                            </li>
-                            <li>
-                                Backups (mensuales)
-                            </li>
-                            <li>
-                                App POS(Punto de Venta)
-                            </li>
-                            <li>
-                                Capacitaciones
-                            </li>
-                            <li>
-                                <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 wow zoomIn">
-                        <ul class="pricing-plan list-unstyled selected">
-                            <li class="pricing-title">
-                                Flex
-                            </li>
-                            <li class="pricing-desc">
-                                Ventas, Compras, Clientes, Proveedores, Contabilidad, Inventarios, Caja - Bancos, Impuestos
-                            </li>
-                            <li class="pricing-price">
-                                <span>$35</span> / mes
-                            </li>
-                            <li>
-                                Reportes
-                            </li>
-                            <li>
-                                Backups (semanales)
-                            </li>
-                            <li>
-                                App Mobile
-                            </li>
-                            <li>
-                                App POS(Punto de Venta)
-                            </li>
-                            <li>
-                                Capacitaciones
-                            </li>
-                            <li>
-                                <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 wow zoomIn">
-                        <ul class="pricing-plan list-unstyled">
-                            <li class="pricing-title">
-                                Lite
-                            </li>
-                            <li class="pricing-desc">
-                            Ventas, Compras, Clientes, Proveedores, Contabilidad, Inventarios, Caja - Bancos, Impuestos, </br>
-                            Activos Fijos, N&oacute;mina
-                        </li>
-                        <li class="pricing-price">
-                            <span>$59</span> / mes
-                        </li>
-                        <li>
-                            Reportes
-                        </li>
-                        <li>
-                            Backups (Diarios)
-                        </li>
-                        <li>
-                            App Mobile
-                        </li>
-                        <li>
-                            App POS(Punto de Venta, Biométrico)
-                        </li>
-                        <li>
-                            Capacitaciones
-                        </li>
-                        <li>
-                            <strong>Plataforma de Soporte</strong>
-                        </li>
-                        <li class="plan-action">
-                            <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 wow zoomIn">
-                    <ul class="pricing-plan list-unstyled">
-                        <li class="pricing-title">
-                            Modular
-                        </li>
-                        <li class="pricing-desc">
-                            Dise&ntilde;a tu paquete a la medida
-                        </li>
-                        <li>
-                            Reportes, Indicadores de gestión (Dashboards)
-                        </li>
-                        <li>
-                            Backups (Diarios)
-                        </li>
-                        <li>
-                            App Mobile
-                        </li>
-                        <li>
-                            App POS(Punto de Venta, Biométrico, Gift Cards)
-                        </li>
-                        <li>
-                            Capacitaci&oacute;n, Seguimiento
-                        </li>
-                        <li>
-                            <strong>Plataforma de Soporte</strong>
-                        </li>
-                        <li>
-                            <a class="btn btn-primary btn-xs" href="#">Contáctanos</a>
-                        </li>
-                    </ul>
-                </div>
-                --}}
                 @endif
             </div>
             <div class="row m-t-lg">
                 <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
-                    <p>* Todos los planes inician con 3 ususarios.</p>
-                    <p>** No incluyen Modulos Especiales</p>
-                    <p>*** Los valores no incluyen impuestos</p>
-                    <p>**** Costo por documento emitido 0.01 ctv para Facturacion Electrónica</p>
+                    {!! $precio->contenido !!}
 
                 </div>
             </div>
         </div>
-
     </section>
+    @endif
 
+    @if(!empty($contacto))
+    <section id="contact" class="gray-section contact">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>{{ $contacto->Itemnav->item_nav }}</h1>
+                    <p>{{ $contacto->titulo }}</p>
+                </div>
+            </div>
+            <div class="row m-b-lg">
+                {!! $contacto->contenido !!}
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="{{ $contacto->enlaceboton }}" class="btn btn-primary">{{ $contacto->textoboton }}</a>
+                    <p class="m-t-sm">
+                        Siguenos en
+                    </p>
+                    <ul class="list-inline social-icon">
+                        <li><a href="{{ $contacto->social_tw }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="{{ $contacto->social_fb }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                    <p><strong>&copy; 2016 AustroSoft</strong><br/> {{ $empresa['descripcion'] }}</p>
+                </div>
+                <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Mv9KjRtHPXg1G1zkGoMiZyrIUAgT0BImsRWvsiVI3PpH6FD0fRG7Qe2NSpRL"></script></span>
+            </div>
+        </div>
+    </section>
+    @endif
+    {{--
     <section id="contact" class="gray-section contact">
         <div class="container">
             <div class="row m-b-lg">
@@ -441,6 +347,8 @@
             </div>
         </div>
     </section>
+        --}}
+
     <!-- The Modal Contáctanos -->
     <div id="myModal" class="modal">
         <!-- Modal content -->

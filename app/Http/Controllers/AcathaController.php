@@ -14,6 +14,8 @@ use App\Soporte;
 use App\Itemsoporte;
 use App\Paquete;
 use App\CaracteristicaPaquete;
+use App\Precio;
+use App\Contacto;
 
 class AcathaController extends Controller
 {
@@ -40,10 +42,12 @@ class AcathaController extends Controller
         $soporte = Soporte::where('activo','1')->first();
         $itemsoportes = Itemsoporte::where('soporte_id', $soporte->id)->where('estado','1')->get();
 
+        $precio = Precio::where('activo','1')->first();
         $paquetes = Paquete::where('estado', 1)->get();
         $caracteristicapaquetes = CaracteristicaPaquete::where('estado', 1)->get();
+        $contacto = Contacto::where('estado','1')->first();
         
-        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante','itemscomprobante','soporte','itemsoportes','itemsoportes','paquetes','caracteristicapaquetes'));
+        return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante','itemscomprobante','soporte','itemsoportes','itemsoportes','precio','paquetes','caracteristicapaquetes','contacto'));
     }
 
     /**
