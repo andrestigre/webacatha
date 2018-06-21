@@ -97,3 +97,6 @@ Route::group(['prefix' => 'customer'], function () {
 
 
 
+Route::get('paypal/express-checkout/{idpaquete}', 'PaypalController@expressCheckout')->name('paypal.express-checkout');
+Route::get('paypal/express-checkout-success', 'PaypalController@expressCheckoutSuccess');
+Route::post('paypal/notify', 'PaypalController@notify');

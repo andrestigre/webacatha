@@ -26,3 +26,25 @@ php artisan crud:generate Precios --fields_from_file="C:\xampp\htdocs\webacatha\
 php artisan crud:generate Contacto --fields_from_file="C:\xampp\htdocs\webacatha\public\fields\contacto.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
 
 C:\xampp\htdocs\webacatha\public\fields\tipopaquete.json
+
+
+paypal sandbox
+
+
+client_id : ARCBUFeF-5alg8OnMZ3cNR_mgdzXX0440BX2reyzNbFqbvTw0txL0tUCg7BCjodho32tfZ26qURNPgl5
+
+Secret: EEa5kfuQWOTAgRl-87Y0Awsr_X70U8lfTZNiJerGd4VgfVrzJLxzd9K2MH0sXxb3yeMli2AFIQXTdCK9
+
+
+manual: https://quickadminpanel.com/blog/paypal-payments-in-laravel-the-ultimate-guide/
+
+libreria
+https://github.com/srmklive/laravel-paypal
+
+cuenta consumidor
+https://www.sandbox.paypal.com/myaccount/home
+andrescondo_17@outlook.com CATC0105118509catc
+
+cuenta receptor
+https://www.sandbox.paypal.com/businessprofile/settings/
+pssolutionsct@gmail.com CATC0105118509catc

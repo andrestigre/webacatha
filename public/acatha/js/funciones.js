@@ -8,29 +8,36 @@ $('.completarpago').click(function(e){
         var precio = $('#preciomodal').val();
         var paqueteseleccionado = $('#paqinputmodal').val();
         var tipopago = $('#tipopago').val();
+        var idpaquete = $('#idmodal').val();
+
         if(tipopago=='0'){
         	alert("Deposito o transferencia");
         }
         if(tipopago=='1'){
-        	alert("PayPal");
+        	var url = '/paypal/express-checkout/'+idpaquete;
         }
         if(tipopago=='2'){
         	alert("PayPhone");
         }
 
-        $.ajax({
-            type : 'post',
-            url : url,
+        var data = {
+            id: idpaquete
+        };
+
+        window.location.href = url;
+         /*$.ajax({
+            type: "get",
+            url: url,
             headers:{'X-CSRF-TOKEN':token},
-            data : data,
-            dataType : 'json',
+            data: data,
+            dataType: 'json',
             success: function (data) {
-                //console.clear();
+                console.log('datos enviados');
             },
             error: function (data) {
                 console.log('Error:', data);
             }
-        });
+        });*/
 
                 
     });

@@ -181,6 +181,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
     'HTML' => Collective\Html\HtmlFacade::class,
     'Image' => Intervention\Image\Facades\Image::class,
+    'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
 
     ],
 
