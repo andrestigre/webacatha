@@ -1,16 +1,23 @@
 
 $(document).ready(function () {
 
-/*
-data-paquete
-*/
-/*
-$('#comprarPaquete').click(function(e){
+$('.completarpago').click(function(e){
         e.preventDefault();
-        alert("show");
         var token = $("input[name=_token]").val();
-        var paquete = $(this).data('paquete');
-        console.log(paquete);
+        var paquete_id = $('#tipopaquete_idmodal').val();
+        var precio = $('#preciomodal').val();
+        var paqueteseleccionado = $('#paqinputmodal').val();
+        var tipopago = $('#tipopago').val();
+        if(tipopago=='0'){
+        	alert("Deposito o transferencia");
+        }
+        if(tipopago=='1'){
+        	alert("PayPal");
+        }
+        if(tipopago=='2'){
+        	alert("PayPhone");
+        }
+
         $.ajax({
             type : 'post',
             url : url,
@@ -27,10 +34,15 @@ $('#comprarPaquete').click(function(e){
 
                 
     });
-*/
+
 });
 
 var ComprarPaquete = function(id){
+	if(id=='4'){
+	$('#divdescripcion').show();
+	}else{
+	$('#divdescripcion').hide();
+	}
     var token = $("input[name=_token]").val();
         var data = {
             id: id
@@ -45,11 +57,16 @@ var ComprarPaquete = function(id){
             success: function (data) {
                 //console.log(data.paquete.detalle);
                 //console.log(data.caracteristicas);
+                //console.log(data.paquete.id);
                 //console.clear();
-                
+                $("ul.listchar").empty();
                 $("#detallemodal").val(data.paquete.detalle);
                 $("#preciomodal").val(data.paquete.precio);
                 $("#idmodal").val(data.paquete.id);
+                $("#tipopaquete_idmodal").val(data.paquete.tipopaquete_id);
+
+                $("#paqueteseleccionado").text('Paquete '+data.tipopaquete.tipo_paquete);
+                $("#paqinputmodal").val('Paquete '+data.tipopaquete.tipo_paquete);
 
                 $("#detallelabel").text(data.paquete.detalle);
                 if((data.paquete.precio) == null){
@@ -58,14 +75,20 @@ var ComprarPaquete = function(id){
                 	var precio = data.paquete.precio+' / '+data.paquete.periodo;
                 }
                 $("#preciolabel").text('$ '+precio);
+                var listachar = $('ul.listchar');
 //recibir array cadena caracteristicas de paquete
 $.each(data.caracteristicas, function(key,value) {
-     console.log(value.car_paquete);
+     var li = $('<li/>')
+        .addClass('list-group-item')
+        .attr('role', 'menuitem')
+        .appendTo(listachar);
+      var aaa = $('<a/>')
+        .addClass('ui-all')
+        .text(value.car_paquete)
+        .appendTo(li);
 }); 
-                	/*$.each(data.caracteristicas,function(){
-			      });*/
                 
-                //console.clear();
+                console.clear();
                 console.log('copiado');
             },
             error: function (data) {

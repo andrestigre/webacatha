@@ -1135,3 +1135,53 @@ section.comments {
   border: 6px solid transparent;
   border-color: #fff transparent transparent transparent;
 }
+/*Estilo para vista previa de compra*/
+/*Estilo de formulario fieldset modal*/
+fieldset { border:1px solid #000; font-family: 'Bree Serif', serif; }
+
+legend {
+    margin-left: 10px;
+    width: 100px;
+  padding: 0.2em 0.5em;
+  border:1px solid #000;
+  color: #000;
+  font-size:90%;
+  text-align:left;
+  font-family: 'Bree Serif', serif;
+
+  }
+  fieldset, legend{
+    border-radius: 7px 7px 7px 7px;
+-moz-border-radius: 7px 7px 7px 7px;
+-webkit-border-radius: 7px 7px 7px 7px;
+border: 1px solid #000;
+  }
+
+ /*Estilo lista detalles de paqute*/
+
+ #lista1 ul { 
+  list-style-type: disc;
+    margin-left: auto;
+    font-family: 'Bree Serif', serif;
+}
+
+#lista1 ul li { 
+    font-family:Georgia,serif,Times; 
+    font-size:12px; 
+    font-family: 'Bree Serif', serif;
+}
+
+#lista1 ul li a { 
+    display:block; 
+    width:auto; 
+    height:auto;  
+    text-decoration:none; 
+    color:#343434; 
+    font-family: 'Bree Serif', serif;
+}
+
+#lista1 ul li a:hover { 
+    background-color: #fff;
+    margin-left: 10px;
+}
+

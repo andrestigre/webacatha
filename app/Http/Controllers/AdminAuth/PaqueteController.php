@@ -18,8 +18,9 @@ class PaqueteController extends Controller
         $caracteristicapaquetes = CaracteristicaPaquete::where('estado', 1)
         ->where('paquete_id', $request->id)
         ->get();
+        $tipopaquete = Tipopaquete::where('id', $paquete->tipopaquete_id)->first();
 
-            return response()->json(['paquete'=>$paquete, 'caracteristicas'=>$caracteristicapaquetes]);
+            return response()->json(['paquete'=>$paquete, 'caracteristicas'=>$caracteristicapaquetes, 'tipopaquete'=>$tipopaquete]);
         }
     }
     /**
