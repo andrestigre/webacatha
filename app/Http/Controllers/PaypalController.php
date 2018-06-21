@@ -19,6 +19,12 @@ public function __construct() {
 
 public function expressCheckout(Request $request, $idpaquete) {
 
+
+$paqueteseleccionado = DB::table('paquetes')
+            ->join('tipopaquetes', 'paquetes.tipopaquete_id', '=', 'tipopaquetes.id')
+            ->select('paquetes.*', 'tipopaquetes.tipo_paquete')
+            ->where('paquetes.id', $idpaquete)
+            ->first();
 	
 
   // check if payment is recurring
@@ -29,7 +35,7 @@ public function expressCheckout(Request $request, $idpaquete) {
       
   // Get the cart data
   //$cart = $this->getCart($recurring, $invoice_id);
-  $cart = $this->getCart($recurring, $invoice_id);
+  $cart = $this->getCart($recurring, $invoice_id, $idpaquete);
   // create new invoice
   $invoice = new Invoice();
   $invoice->title = $cart['invoice_description'];
@@ -61,6 +67,9 @@ public function expressCheckout(Request $request, $idpaquete) {
 
 private function getCart($recurring, $invoice_id)
     {
+
+
+
 
         if ($recurring) {
             return [
@@ -115,9 +124,9 @@ private function getCart($recurring, $invoice_id)
         ];
     }
 
+    
 
     public function expressCheckoutSuccess(Request $request) {
-
         // check if payment is recurring
         $recurring = $request->input('recurring', false) ? true : false;
 
