@@ -46,6 +46,7 @@ class AcathaController extends Controller
         $paquetes = Paquete::where('estado', 1)->get();
         $caracteristicapaquetes = CaracteristicaPaquete::where('estado', 1)->get();
         $contacto = Contacto::where('estado','1')->first();
+
         
         return view('acatha',compact('empresa','itemnavs','sliders','caracteristicas','itemscaracteristicas','caracteristicassub','itemscaracteristicasleft','itemscaracteristicasrigth','comprobante','itemscomprobante','soporte','itemsoportes','itemsoportes','precio','paquetes','caracteristicapaquetes','contacto'));
     }

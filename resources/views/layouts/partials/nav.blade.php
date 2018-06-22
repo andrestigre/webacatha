@@ -21,6 +21,10 @@
                     @endif
                 </ul>
             </div>
+        @include('flash::message')
         </div>
+
+
     </nav>
+
 </div>

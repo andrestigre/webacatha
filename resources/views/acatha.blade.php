@@ -29,319 +29,274 @@
 
 <!-- Custom styles for this template -->
 <link href="{{ asset('acatha/css/style.css') }}" rel="stylesheet">
-
-
+<!--
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+-->
 
 
 </head>
 <body id="page-top">
 
-    @include('layouts.partials.nav')
 
 
-    @include('layouts.partials.slider')
 
-    @if(!empty($caracteristicas))
-    <section id="features" class="container services {{ $caracteristicas->section_color }}">
-        <div class="row">
-            {!! $caracteristicas->contenido !!}
-        </div>
-        <div class="row">
-            @if(!empty($itemscaracteristicas))
-            @foreach($itemscaracteristicas as $itemscaracteristica)
-            <div class="col-sm-3">
-                <h2>{{ $itemscaracteristica->item_caracteristica }}</h2>
-                <p>{{ $itemscaracteristica->detalle }}</p>
-                <p>
-                    @if(!empty($itemscaracteristica->iconuno))<i class="{{ $itemscaracteristica->iconuno }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                    @if(!empty($itemscaracteristica->icondos))<i class="{{ $itemscaracteristica->icondos }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                    @if(!empty($itemscaracteristica->icontres))<i class="{{ $itemscaracteristica->icontres }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                    @if(!empty($itemscaracteristica->iconcuatro))<i class="{{ $itemscaracteristica->iconcuatro }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                    @if(!empty($itemscaracteristica->iconcinco))<i class="{{ $itemscaracteristica->iconcinco }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                    @if(!empty($itemscaracteristica->iconseis))<i class="{{ $itemscaracteristica->iconseis }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
-                </p>
+    {{-- 
+
+        @if(\Session::has('message'))
+        @include('layouts.partials.message')
+        @endif
+        --}}
+
+        @include('layouts.partials.nav')
+
+
+
+        @include('layouts.partials.slider')
+
+
+        @if(!empty($caracteristicas))
+        <section id="features" class="container services {{ $caracteristicas->section_color }}">
+            <div class="row">
+                {!! $caracteristicas->contenido !!}
             </div>
-            @endforeach
-            @endif
-        </div>
-    </section>
-    @endif
-
-
-    @if(!empty($caracteristicassub))
-    <section  class="container features {{ $caracteristicassub->section_color }}">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                {!! $caracteristicassub->contenido !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 text-center wow fadeInLeft">
-                @if(!empty($itemscaracteristicasleft))
-                @foreach($itemscaracteristicasleft as $itemscaracteristicaleft)
-                <div>
-                    @if(!empty($itemscaracteristicaleft->iconuno))
-                    <i class="{{ $itemscaracteristicaleft->iconuno }}" aria-hidden="true"></i>@endif
-                    <h2>{{ $itemscaracteristicaleft->item_caracteristica }}</h2>
-                    <p>{{ $itemscaracteristicaleft->detalle }}</p>
+            <div class="row">
+                @if(!empty($itemscaracteristicas))
+                @foreach($itemscaracteristicas as $itemscaracteristica)
+                <div class="col-sm-3">
+                    <h2>{{ $itemscaracteristica->item_caracteristica }}</h2>
+                    <p>{{ $itemscaracteristica->detalle }}</p>
+                    <p>
+                        @if(!empty($itemscaracteristica->iconuno))<i class="{{ $itemscaracteristica->iconuno }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->icondos))<i class="{{ $itemscaracteristica->icondos }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->icontres))<i class="{{ $itemscaracteristica->icontres }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->iconcuatro))<i class="{{ $itemscaracteristica->iconcuatro }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->iconcinco))<i class="{{ $itemscaracteristica->iconcinco }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                        @if(!empty($itemscaracteristica->iconseis))<i class="{{ $itemscaracteristica->iconseis }}" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@endif
+                    </p>
                 </div>
                 @endforeach
                 @endif
             </div>
-            <div class="col-md-6 text-center  wow zoomIn">
-                <img src="{{ asset($caracteristicassub->imagen) }}" alt="dashboard" class="img-responsive">
-            </div>
-            <div class="col-md-3 text-center wow fadeInRight">
-                @if(!empty($itemscaracteristicasrigth))
-                @foreach($itemscaracteristicasrigth as $itemscaracteristicarigth)
-                <div>
-                    @if(!empty($itemscaracteristicarigth->iconuno))
-                    <i class="{{ $itemscaracteristicarigth->iconuno }}" aria-hidden="true"></i>@endif
-                    <h2>{{ $itemscaracteristicarigth->item_caracteristica }}</h2>
-                    <p>{{ $itemscaracteristicarigth->detalle }}</p>
-                </div>
-                @endforeach
-                @endif
-            </div>
-        </div>
-    </section>
-    @endif
+        </section>
+        @endif
 
-    @if(!empty($comprobante))
 
-    <section id="electronicos" class="{{ $comprobante->section_color }} features">
-        <div class="container">
+        @if(!empty($caracteristicassub))
+        <section  class="container features {{ $caracteristicassub->section_color }}">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="navy-line"></div>
-                    {!! $comprobante->detalle !!}
+                    {!! $caracteristicassub->contenido !!}
                 </div>
             </div>
-            <div class="row features-block">
-                <div class="col-lg-6 features-text wow fadeInLeft">
-                    {!! $comprobante->contenido !!}
-                    @if(!empty($comprobante->enlace))
-                    <a href="{{ $comprobante->enlace }}" class="btn btn-primary">Saber m&aacute;s</a>
+            <div class="row">
+                <div class="col-md-3 text-center wow fadeInLeft">
+                    @if(!empty($itemscaracteristicasleft))
+                    @foreach($itemscaracteristicasleft as $itemscaracteristicaleft)
+                    <div>
+                        @if(!empty($itemscaracteristicaleft->iconuno))
+                        <i class="{{ $itemscaracteristicaleft->iconuno }}" aria-hidden="true"></i>@endif
+                        <h2>{{ $itemscaracteristicaleft->item_caracteristica }}</h2>
+                        <p>{{ $itemscaracteristicaleft->detalle }}</p>
+                    </div>
+                    @endforeach
                     @endif
                 </div>
-                <div class="col-lg-6 text-right wow fadeInRight">
-                    <img src="{{ asset($comprobante->imagen) }}" alt="dashboard" class="img-responsive pull-right">
+                <div class="col-md-6 text-center  wow zoomIn">
+                    <img src="{{ asset($caracteristicassub->imagen) }}" alt="dashboard" class="img-responsive">
+                </div>
+                <div class="col-md-3 text-center wow fadeInRight">
+                    @if(!empty($itemscaracteristicasrigth))
+                    @foreach($itemscaracteristicasrigth as $itemscaracteristicarigth)
+                    <div>
+                        @if(!empty($itemscaracteristicarigth->iconuno))
+                        <i class="{{ $itemscaracteristicarigth->iconuno }}" aria-hidden="true"></i>@endif
+                        <h2>{{ $itemscaracteristicarigth->item_caracteristica }}</h2>
+                        <p>{{ $itemscaracteristicarigth->detalle }}</p>
+                    </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        @endif
 
+        @if(!empty($comprobante))
 
-
-    <section class="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1>&nbsp;</h1>
-                    <p>{{ $comprobante->titulofinal }} </p>
+        <section id="electronicos" class="{{ $comprobante->section_color }} features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="navy-line"></div>
+                        {!! $comprobante->detalle !!}
+                    </div>
+                </div>
+                <div class="row features-block">
+                    <div class="col-lg-6 features-text wow fadeInLeft">
+                        {!! $comprobante->contenido !!}
+                        @if(!empty($comprobante->enlace))
+                        <a href="{{ $comprobante->enlace }}" class="btn btn-primary">Saber m&aacute;s</a>
+                        @endif
+                    </div>
+                    <div class="col-lg-6 text-right wow fadeInRight">
+                        <img src="{{ asset($comprobante->imagen) }}" alt="dashboard" class="img-responsive pull-right">
+                    </div>
                 </div>
             </div>
-            <div class="row features-block">
-                @if(!empty($itemscomprobante))
-                @foreach($itemscomprobante as $itemscomp)
-                @if(($itemscomp->textalinear)=='0') <?php  $align='col-lg-2 features-text text-right'; ?> @endif
-                @if(($itemscomp->textalinear)=='1') <?php  $align='col-lg-2 features-text text-left'; ?> @endif
-                @if(($itemscomp->textalinear)=='2') <?php  $align='col-lg-4 text-center text-right'; ?> @endif
-                <div class="<?php echo $align; ?> wow {{ $itemscomp->efecto }}">
-                    <h2>{{ $itemscomp->item_comprobante }}</h2>
-                    <p>{{ $itemscomp->contenido }}</p>
+        </section>
+
+
+
+        <section class="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1>&nbsp;</h1>
+                        <p>{{ $comprobante->titulofinal }} </p>
+                    </div>
                 </div>
-                @endforeach
-                @endif
-            </div>
-        </div>
-    </section>
-    @endif
-
-    @if(!empty($soporte))
-
-    <section id="soporte" class="timeline {{ $soporte->section_color }}">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="navy-line"></div>
-                    <h1>{{ $soporte->titulo }}</h1>
-                    <p>{{ $soporte->detalle }}</p>
+                <div class="row features-block">
+                    @if(!empty($itemscomprobante))
+                    @foreach($itemscomprobante as $itemscomp)
+                    @if(($itemscomp->textalinear)=='0') <?php  $align='col-lg-2 features-text text-right'; ?> @endif
+                    @if(($itemscomp->textalinear)=='1') <?php  $align='col-lg-2 features-text text-left'; ?> @endif
+                    @if(($itemscomp->textalinear)=='2') <?php  $align='col-lg-4 text-center text-right'; ?> @endif
+                    <div class="<?php echo $align; ?> wow {{ $itemscomp->efecto }}">
+                        <h2>{{ $itemscomp->item_comprobante }}</h2>
+                        <p>{{ $itemscomp->contenido }}</p>
+                    </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
-            <div class="row features-block">
-                <div class="col-lg-12">
-                    <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+        </section>
+        @endif
 
-                        @foreach($itemsoportes as $itemsoporte)
-                        <div class="vertical-timeline-block">
-                            <div class="vertical-timeline-icon navy-bg">
-                                <i class="{{ $itemsoporte->icono }}"></i>
+        @if(!empty($soporte))
+
+        <section id="soporte" class="timeline {{ $soporte->section_color }}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="navy-line"></div>
+                        <h1>{{ $soporte->titulo }}</h1>
+                        <p>{{ $soporte->detalle }}</p>
+                    </div>
+                </div>
+                <div class="row features-block">
+                    <div class="col-lg-12">
+                        <div id="vertical-timeline" class="vertical-container light-timeline center-orientation">
+
+                            @foreach($itemsoportes as $itemsoporte)
+                            <div class="vertical-timeline-block">
+                                <div class="vertical-timeline-icon navy-bg">
+                                    <i class="{{ $itemsoporte->icono }}"></i>
+                                </div>
+
+                                <div class="vertical-timeline-content">
+                                    <h2>{{ $itemsoporte->titulo }}</h2>
+                                    <p>{!! $itemsoporte->contenido !!}
+                                    </p>
+                                    @if(!empty($itemsoporte->enlace))
+                                    <a href="{{ $itemsoporte->enlace }}" class="btn btn-xs btn-primary">  {{ $itemsoporte->tituloenlace }} </a>
+                                    @endif
+                                    <span class="vertical-date"> {{ $itemsoporte->tituloanexo }} <br/> <small>{{ $itemsoporte->textoanexo }}</small> </span>
+                                </div>
                             </div>
+                            @endforeach
 
-                            <div class="vertical-timeline-content">
-                                <h2>{{ $itemsoporte->titulo }}</h2>
-                                <p>{!! $itemsoporte->contenido !!}
-                                </p>
-                                @if(!empty($itemsoporte->enlace))
-                                <a href="{{ $itemsoporte->enlace }}" class="btn btn-xs btn-primary">  {{ $itemsoporte->tituloenlace }} </a>
-                                @endif
-                                <span class="vertical-date"> {{ $itemsoporte->tituloanexo }} <br/> <small>{{ $itemsoporte->textoanexo }}</small> </span>
-                            </div>
                         </div>
-                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+        @endif
+
+        @if(!empty($precio))
+        <section id="pricing" class="pricing">
+            <div class="container">
+
+                <div class="row m-b-lg">
+                    <div class="col-lg-12 text-center">
+                        <div class="navy-line"></div>
+                        <h1>{{ $precio->Itemnav->item_nav }}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    @if(!empty($paquetes))
+                    @foreach($paquetes as $itempaquete)
+                    <div class="col-lg-3 wow zoomIn">
+                        <ul class="pricing-plan list-unstyled">
+                            <li class="pricing-title">
+                                {{ $itempaquete->Tipopaquete->tipo_paquete }}
+                            </li>
+                            <li class="pricing-desc">
+                                {!! $itempaquete->detalle !!}
+                            </li>
+                            <li class="pricing-price">
+                                <span>
+                                    @if(!empty($itempaquete->precio))
+                                    ${{ number_format($itempaquete->precio,2) }}
+                                    @else
+                                    Precio por definir
+                                    @endif
+                                </span> / {{ $itempaquete->periodo }}
+                            </li>
+
+                            @if(!empty($caracteristicapaquetes))
+                            @foreach($caracteristicapaquetes as $itemchar)
+                            @if($itempaquete->id == $itemchar->paquete_id)
+                            <li>
+                                {{ $itemchar->car_paquete }}
+                            </li>
+                            @endif
+                            @endforeach
+                            @endif
+
+                            <li>
+
+                                <a class="btn btn-primary btn-xs" id="comprarPaquete" href="{{ $itempaquete->Tipopaquete->enlace }}" data-toggle="modal" data-target="#modalCompraPaquete" onclick="ComprarPaquete({{ $itempaquete->id }});">{{ $itempaquete->Tipopaquete->totuloenlace }}</a>
+
+
+                            </li>
+                        </ul>
+                    </div>
+                    @endforeach
+                    @endif
+                </div>
+                <div class="row m-t-lg">
+                    <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
+                        {!! $precio->contenido !!}
 
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    @endif
+        </section>
+        @endif
 
-    @if(!empty($precio))
-    <section id="pricing" class="pricing">
-        <div class="container">
-
-            <div class="row m-b-lg">
-                <div class="col-lg-12 text-center">
-                    <div class="navy-line"></div>
-                    <h1>{{ $precio->Itemnav->item_nav }}</h1>
-                </div>
-            </div>
-            <div class="row">
-                @if(!empty($paquetes))
-                @foreach($paquetes as $itempaquete)
-                <div class="col-lg-3 wow zoomIn">
-                    <ul class="pricing-plan list-unstyled">
-                        <li class="pricing-title">
-                            {{ $itempaquete->Tipopaquete->tipo_paquete }}
-                        </li>
-                        <li class="pricing-desc">
-                            {!! $itempaquete->detalle !!}
-                        </li>
-                        <li class="pricing-price">
-                            <span>
-                                @if(!empty($itempaquete->precio))
-                                ${{ number_format($itempaquete->precio,2) }}
-                                @else
-                                Precio por definir
-                                @endif
-                            </span> / {{ $itempaquete->periodo }}
-                        </li>
-                        
-                        @if(!empty($caracteristicapaquetes))
-                        @foreach($caracteristicapaquetes as $itemchar)
-                        @if($itempaquete->id == $itemchar->paquete_id)
-                        <li>
-                            {{ $itemchar->car_paquete }}
-                        </li>
-                        @endif
-                        @endforeach
-                        @endif
-
-                        <li>
-
-                            <a class="btn btn-primary btn-xs" id="comprarPaquete" href="{{ $itempaquete->Tipopaquete->enlace }}" data-toggle="modal" data-target="#modalCompraPaquete" onclick="ComprarPaquete({{ $itempaquete->id }});">{{ $itempaquete->Tipopaquete->totuloenlace }}</a>
-
-
-                        </li>
-                    </ul>
-                </div>
-                @endforeach
-                @endif
-            </div>
-            <div class="row m-t-lg">
-                <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
-                    {!! $precio->contenido !!}
-
-                </div>
-            </div>
-        </div>
-    </section>
-    @endif
-
-    @if(!empty($contacto))
-    <section id="contact" class="{{ $contacto->section_color }} contact">
-        <div class="container">
-            <div class="row m-b-lg">
-                <div class="col-lg-12 text-center">
-                    <div class="navy-line"></div>
-                    <h1>{{ $contacto->Itemnav->item_nav }}</h1>
-                    <p>{{ $contacto->titulo }}</p>
-                </div>
-            </div>
-            <div class="row m-b-lg">
-                {!! $contacto->contenido !!}
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a href="{{ $contacto->enlaceboton }}" class="btn btn-primary">{{ $contacto->textoboton }}</a>
-                    <p class="m-t-sm">
-                        Siguenos en
-                    </p>
-                    <ul class="list-inline social-icon">
-                        <li><a href="{{ $contacto->social_tw }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="{{ $contacto->social_fb }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-                    <p><strong>&copy; 2016 AustroSoft</strong><br/> {{ $empresa['descripcion'] }}</p>
-                </div>
-                <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Mv9KjRtHPXg1G1zkGoMiZyrIUAgT0BImsRWvsiVI3PpH6FD0fRG7Qe2NSpRL"></script></span>
-            </div>
-        </div>
-    </section>
-    @endif
-    {{--
-        <section id="contact" class="gray-section contact">
+        @if(!empty($contacto))
+        <section id="contact" class="{{ $contacto->section_color }} contact">
             <div class="container">
                 <div class="row m-b-lg">
                     <div class="col-lg-12 text-center">
                         <div class="navy-line"></div>
-                        <h1>Cont&aacute;ctanos</h1>
-                        <p>Estamos prestos para servirte en donde te encuentres solo comun&iacute;cate con nosotros.</p>
+                        <h1>{{ $contacto->Itemnav->item_nav }}</h1>
+                        <p>{{ $contacto->titulo }}</p>
                     </div>
                 </div>
                 <div class="row m-b-lg">
-                    <div class="col-lg-2 col-lg-offset-3">
-                        <address>
-                            <strong><span class="navy">Acatha Inc.</span></strong><br/>
-                            4th Floor Torres del Mall del Sol <br/>Avenida Joaquin Orratia y<br/>
-                            Juan Tanca Marengo
-                            Guayaquil, Ecuador<br/>
-                            <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
-                        </address>
-                    </div>
-                    <div class="col-lg-2">
-                        <address>
-                            <strong><span class="navy">AustroSoft, Cia Ltda.</span></strong><br/>
-                            Av Francisco Moscoso, No 6-25 y <br/>Av 10 de Agosto<br/>
-                            Cuenca, Ecuador 11204<br/>
-                            <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
-                            <abbr title="Phone">T:</abbr> +593 7 281-8447
-                        </address>
-                    </div>
-                    <div class="col-lg-2">
-                        <p class="text-color">
-                            <strong>ACATHA</strong> es un universo de aplicativos para la gesti&oacute;n administrativa, financiera y contable que te permitir&aacute; realizar tareas complejas de forma sencilla, integral y precisa.
-                        </p>
-                    </div>
+                    {!! $contacto->contenido !!}
                 </div>
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <a href="mailto:comercializacion@austrosoft.com.ec" class="btn btn-primary">Escr&iacute;benos</a>
+                        <a href="{{ $contacto->enlaceboton }}" class="btn btn-primary">{{ $contacto->textoboton }}</a>
                         <p class="m-t-sm">
                             Siguenos en
                         </p>
                         <ul class="list-inline social-icon">
-                            <li><a href="https://twitter.com/acathaec" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <li><a href="{{ $contacto->social_tw }}" target="_blank"><i class="fa fa-twitter"></i></a>
                             </li>
-                            <li><a href="https://www.facebook.com/acathaec" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <li><a href="{{ $contacto->social_fb }}" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -354,201 +309,261 @@
                 </div>
             </div>
         </section>
-        --}}
-
-        <!-- The Modal Contáctanos -->
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">×</span>
-                    <h3>Contáctanos</h3>
+        @endif
+        {{--
+            <section id="contact" class="gray-section contact">
+                <div class="container">
+                    <div class="row m-b-lg">
+                        <div class="col-lg-12 text-center">
+                            <div class="navy-line"></div>
+                            <h1>Cont&aacute;ctanos</h1>
+                            <p>Estamos prestos para servirte en donde te encuentres solo comun&iacute;cate con nosotros.</p>
+                        </div>
+                    </div>
+                    <div class="row m-b-lg">
+                        <div class="col-lg-2 col-lg-offset-3">
+                            <address>
+                                <strong><span class="navy">Acatha Inc.</span></strong><br/>
+                                4th Floor Torres del Mall del Sol <br/>Avenida Joaquin Orratia y<br/>
+                                Juan Tanca Marengo
+                                Guayaquil, Ecuador<br/>
+                                <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
+                            </address>
+                        </div>
+                        <div class="col-lg-2">
+                            <address>
+                                <strong><span class="navy">AustroSoft, Cia Ltda.</span></strong><br/>
+                                Av Francisco Moscoso, No 6-25 y <br/>Av 10 de Agosto<br/>
+                                Cuenca, Ecuador 11204<br/>
+                                <abbr title="Phone">CEL:</abbr> +593 98 976 5272</br>
+                                <abbr title="Phone">T:</abbr> +593 7 281-8447
+                            </address>
+                        </div>
+                        <div class="col-lg-2">
+                            <p class="text-color">
+                                <strong>ACATHA</strong> es un universo de aplicativos para la gesti&oacute;n administrativa, financiera y contable que te permitir&aacute; realizar tareas complejas de forma sencilla, integral y precisa.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <a href="mailto:comercializacion@austrosoft.com.ec" class="btn btn-primary">Escr&iacute;benos</a>
+                            <p class="m-t-sm">
+                                Siguenos en
+                            </p>
+                            <ul class="list-inline social-icon">
+                                <li><a href="https://twitter.com/acathaec" target="_blank"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="https://www.facebook.com/acathaec" target="_blank"><i class="fa fa-facebook"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                            <p><strong>&copy; 2016 AustroSoft</strong><br/> {{ $empresa['descripcion'] }}</p>
+                        </div>
+                        <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=Mv9KjRtHPXg1G1zkGoMiZyrIUAgT0BImsRWvsiVI3PpH6FD0fRG7Qe2NSpRL"></script></span>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form name="signup_frm" id="signup_frm" method="post" >
-                        <fieldset>
-                            <div class="form-group">
-                                <label>Nombres Y Apellidos<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="nombres" id="nombres">
-                            </div>
-                            <div class="form-group">
-                                <label>Teléfono<span class="required">*</span></label>
-                                <input type="text" class="form-control" name="telefono" id="telefono">
-                            </div>
-                            <div class="form-group">
-                                <label>Email<span class="required">*</span></label>
-                                <input type="email" class="form-control" name="email" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label>Ciudad<span class="required">*</span></label>
-                                <input type="ciudad" class="form-control" name="ciudad" id="ciudad">
-                            </div>
-                            <div id="error">
-                                <!-- error will be shown here ! -->
-                            </div>
-                            <div class="g-recaptcha" data-sitekey="" data-theme="dark"></div>
-                            <button type="submit" name="register_btn" id="register_btn" class="btn btn-primary btn-lg btn-block">Enviar</button>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="modal-footer">
+            </section>
+            --}}
 
+            <!-- The Modal Contáctanos -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">×</span>
+                        <h3>Contáctanos</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form name="signup_frm" id="signup_frm" method="post" >
+                            <fieldset>
+                                <div class="form-group">
+                                    <label>Nombres Y Apellidos<span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="nombres" id="nombres">
+                                </div>
+                                <div class="form-group">
+                                    <label>Teléfono<span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="telefono" id="telefono">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email<span class="required">*</span></label>
+                                    <input type="email" class="form-control" name="email" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ciudad<span class="required">*</span></label>
+                                    <input type="ciudad" class="form-control" name="ciudad" id="ciudad">
+                                </div>
+                                <div id="error">
+                                    <!-- error will be shown here ! -->
+                                </div>
+                                <div class="g-recaptcha" data-sitekey="" data-theme="dark"></div>
+                                <button type="submit" name="register_btn" id="register_btn" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- The Modal Comprar -->
-        <div class="modal fade" id="modalCompraPaquete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3 class="modal-title" id="paqueteseleccionado"> Paquete  </h3>
-          </div>
-          <div class="modal-body">
-             <form id="formselecpaquete" class="form-horizontal" >
-                
-              <input type="hidden" name="paqinput" id="paqinputmodal" value=""/>
+            <!-- The Modal Comprar -->
+            <div class="modal fade" id="modalCompraPaquete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h3 class="modal-title" id="paqueteseleccionado"> Paquete  </h3>
+              </div>
+              <div class="modal-body">
+                 <form id="formselecpaquete" class="form-horizontal" >
 
-                <div class="row">
+                  <input type="hidden" name="paqinput" id="paqinputmodal" value=""/>
+
+                  <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Necesitamos tus datos </div>
+                            <div class="panel-body">
+
+                                <form class="form-inline" action="">
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    <label for="pwd">Nombre:</label>
+                                                    <input type="text" class="form-control" id="nombrecliente">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+
+                                          <div class="form-group">
+                                            <div class="col-md-10">
+                                                <label for="email">Correo :</label>
+                                                <input type="email" class="form-control" id="emailcliente">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <label for="pwd">Contacto :</label>
+                                                <input type="text" class="form-control" id="contactocliente">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+
+                                        <div class="col-md-12 form-group" id="divdescripcion" style="display: none;">
+                                            <label for="precio">Descripción : </label>
+                                            {!! Form::textarea('descripcion', null, ['class' => 'form-control','id'=>'descripcionmod','rows'=>'2','cols'=>'5']) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
 
                     <div class="col-md-6">
                         <div class="panel panel-info">
-    <div class="panel-heading">Paquete</div>
-    <div class="panel-body">
-        <div class="form-group">
-                            <label for="detalle" class="col-md-4 control-label">
-                                Detalle :
-                            </label>
-                            <div class="col-md-8">
-                                <label style="text-align: left;" id="detallelabel" class="control-label col-md-12"></label>
-                                <input type="hidden" name="detalle" id="detallemodal" value=""/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="precio" class="col-md-4 control-label">
-                                Precio :
-                            </label>
-                            <div class="col-md-8">
-                                <label style="text-align: left;" id="preciolabel" class="control-label col-md-12"></label>
-                                <input type="hidden" name="precio" id="preciomodal" value=""/>
-                            </div>
-                        </div>
+                            <div class="panel-heading">Paquete</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="detalle" class="col-md-4 control-label">
+                                        Detalle :
+                                    </label>
+                                    <div class="col-md-8">
+                                        <label style="text-align: left;" id="detallelabel" class="control-label col-md-12"></label>
+                                        <input type="hidden" name="detalle" id="detallemodal" value=""/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="precio" class="col-md-4 control-label">
+                                        Precio :
+                                    </label>
+                                    <div class="col-md-8">
+                                        <label style="text-align: left;" id="preciolabel" class="control-label col-md-12"></label>
+                                        <input type="hidden" name="precio" id="preciomodal" value=""/>
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="precio" class="col-md-4 control-label">
-                                Método de pago :
-                            </label>
-                            <div class="col-md-8">
-                                <select class="form-control col-md-3" id="tipopago">
-                                    <option value="0">Depósito / Transferencia bancaria</option>
-                                    <option value="1">PayPal</option>
-                                    <option value="2">PayPhone</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="form-group" id="divdescripcion" style="display: none;">
-                            <label for="precio" class="col-md-4 control-label">
-                                 Descripción : 
-                            </label>
-                            <div class="col-md-8">
-                                {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
-                            </div>
-                        </div>
 
-                        
-                        <input type="hidden" name="id" id="idmodal" value="" />
-                        <input type="hidden" name="id" id="tipopaquete_idmodal" value="" />
-    </div>
-    
-  </div>
-  <!--
-                        <fieldset>
-                        <legend>Paquete</legend>
-                        <div class="form-group">
-                            <label for="detalle" class="col-md-4 control-label">
-                                Detalle :
-                            </label>
-                            <div class="col-md-8">
-                                <label style="text-align: left;" id="detallelabel" class="control-label col-md-12"></label>
-                                <input type="hidden" name="detalle" id="detallemodal" value=""/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="precio" class="col-md-4 control-label">
-                                Precio :
-                            </label>
-                            <div class="col-md-8">
-                                <label style="text-align: left;" id="preciolabel" class="control-label col-md-12"></label>
-                                <input type="hidden" name="precio" id="preciomodal" value=""/>
-                            </div>
-                        </div>
+                                <div class="form-group" id="ocultarmetodopago">
+                                    <label for="precio" class="col-md-4 control-label">
+                                        Método de pago :
+                                    </label>
+                                    <div class="col-md-8">
+                                        <select class="form-control col-md-3" id="tipopago">
+                                            <option value="0">Depósito / Transferencia bancaria</option>
+                                            <option value="1">PayPal</option>
+                                            <option value="2">PayPhone</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="precio" class="col-md-4 control-label">
-                                Método de pago :
-                            </label>
-                            <div class="col-md-6">
-                                <select class="form-control col-md-3">
-                                    <option value="0">Depósito / Transferencia bancaria</option>
-                                    <option value="1">PayPal</option>
-                                    <option value="2">PayPhone</option>
-                                </select>
-                            </div>
-                        </div>
-                        <input type="hidden" name="id" id="idmodal" value="" />
 
-                    </fieldset>
-                    -->
+
+                                
+
+
+
+
+                                <input type="hidden" name="id" id="idmodal" value="" />
+                                <input type="hidden" name="id" id="tipopaquete_idmodal" value="" />
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="col-md-6">
 
                         <div class="panel panel-default">
-      <div class="panel-heading">Incluye :</div>
-      <div class="panel-body">
-          <div class="form-group">
-                            
-                        </div>
-                        <div class="col-md-12 " id="lista1">
-                                <ul class="listchar list-group">
-                                    
-                                </ul>
-                            </div>
-      </div>
-    </div>
+                          <div class="panel-heading">Incluye :</div>
+                          <div class="panel-body">
+                              <div class="form-group">
 
-<!--
-                        <fieldset>
-                        <legend>Contenido</legend>
-                            <div class="form-group">
-                            <label for="detalle" class="col-md-4 control-label">
-                                Incluye :
-                            </label>
-                            <div class="col-md-10" id="lista1">
-                                <ul class="listchar">
-                                    
+                              </div>
+                              <div class="col-md-12 " id="lista1">
+                                <ul class="listchar list-group">
+
                                 </ul>
                             </div>
+
+
+
+
                         </div>
-                    </fieldset>
-                    -->
                     </div>
 
-                </div>    
+
+
+                </div>
+
+            </div>    
 
 
 
 
-            </form>
-        </div>
-        <div class="modal-footer">
+        </form>
+    </div>
+    <div class="modal-footer">
             <!--
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           --> 
-              <button type="button" class="btn btn-default completarpago">CONTINUAR</button>
+          <button type="button" class="btn btn-default completarpago">CONTINUAR</button>
       </div>
   </div>
 
@@ -722,6 +737,10 @@
         <script>
             motionAI_Init('67694?color=62a8ea&sendBtn=Enviar&inputBox=Type%20something...&token=0a2290053fd302a4158c4c5b2df838b2',true,400,470,'https://www.acatha.com/img/chat.png');
             motionAI_Open();
+        </script>
+
+        <script>
+            $('div.alert').not('.alert-important').delay(3000).fadeOut(650);
         </script>
 
     </body>

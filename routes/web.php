@@ -15,6 +15,11 @@
     //return view('welcome');
 //    return view('acatha');
 //});
+Route::bind('paquete', function($id){
+  return App\Paquete::where('id', $id)->first();
+});
+
+
 Route::get('/', 'AcathaController@index');
 
 Auth::routes();
@@ -97,6 +102,65 @@ Route::group(['prefix' => 'customer'], function () {
 
 
 
-Route::get('paypal/express-checkout/{idpaquete}', 'PaypalController@expressCheckout')->name('paypal.express-checkout');
-Route::get('paypal/express-checkout-success', 'PaypalController@expressCheckoutSuccess');
-Route::post('paypal/notify', 'PaypalController@notify');
+Route::get('order_success', array(
+  'as' => 'order_success',
+  'uses' => 'AcathaController@index',
+));
+
+Route::get('order_not', array(
+  'as' => 'order_not',
+  'uses' => 'AcathaController@index',
+));
+
+
+Route::get('mostrarerror', function () {
+    dd('algo salio mal');
+});
+
+// Paypal
+Route::get('addItem/{paquete}/{datoscliente}', array(
+  'as' => 'addItem',
+  'uses' => 'ItemController@add',
+));
+
+
+Route::get('addPackCustom/{datoscliente}', array(
+  'as' => 'addPackCustom',
+  'uses' => 'ItemController@addPackCustom',
+));
+// Enviamos nuestro pedido a PayPal
+Route::get('payment', array(
+  'as' => 'payment',
+  'uses' => 'PaypalController@postPayment',
+));
+// Después de realizar el pago Paypal redirecciona a esta ruta
+Route::get('payment/status', array(
+  'as' => 'payment.status',
+  'uses' => 'PaypalController@getPaymentStatus',
+));
+
+Route::get('guarda/', array(
+  'as' => 'guarda',
+  'uses' => 'PaypalinvoiceController@guardaOrden',
+));
+
+Route::get('vercarro/', array(
+  'as' => 'vercarro',
+  'uses' => 'ItemController@vercarro',
+));
+
+Route::get('limpiacarro/', array(
+  'as' => 'limpiacarro',
+  'uses' => 'ItemsController@limpiacarro',
+));
+
+Route::get('aloneadd/{id}', array(
+  'as' => 'aloneadd',
+  'uses' => 'ItemsController@aloneadd',
+));
+
+Route::get('add/{paquete}', array(
+  'as' => 'add',
+  'uses' => 'ItemController@add',
+));
+
