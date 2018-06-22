@@ -133,6 +133,11 @@ return [
             'icon' => 'lock',
         ],
         [
+                    'text' => 'Invoice',
+                    'url'  => 'admin/review-invoice',
+            'icon' => 'envelope',
+        ],
+        [
             'text'    => 'WEB',
             'icon'    => 'share',
             'submenu' => [

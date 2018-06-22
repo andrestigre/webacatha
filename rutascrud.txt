@@ -25,6 +25,8 @@ php artisan crud:generate CaracteristicaPaquete --fields_from_file="C:\xampp\htd
 php artisan crud:generate Precios --fields_from_file="C:\xampp\htdocs\webacatha\public\fields\precios.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
 php artisan crud:generate Contacto --fields_from_file="C:\xampp\htdocs\webacatha\public\fields\contacto.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
 
+php artisan crud:generate ReviewInvoice --fields_from_file="C:\xampp\htdocs\webacatha\public\fields\reviewinvoice.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
 C:\xampp\htdocs\webacatha\public\fields\tipopaquete.json
 
 

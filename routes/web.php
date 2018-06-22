@@ -80,6 +80,8 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('/precios', 'AdminAuth\\PreciosController');
   Route::resource('/contacto', 'AdminAuth\\ContactoController');
   Route::get('/select_paquete', 'AdminAuth\\PaqueteController@select_itemcrt');
+  Route::resource('/review-invoice', 'AdminAuth\\ReviewInvoiceController');
+
 });
 
 
@@ -139,28 +141,4 @@ Route::get('payment/status', array(
   'uses' => 'PaypalController@getPaymentStatus',
 ));
 
-Route::get('guarda/', array(
-  'as' => 'guarda',
-  'uses' => 'PaypalinvoiceController@guardaOrden',
-));
-
-Route::get('vercarro/', array(
-  'as' => 'vercarro',
-  'uses' => 'ItemController@vercarro',
-));
-
-Route::get('limpiacarro/', array(
-  'as' => 'limpiacarro',
-  'uses' => 'ItemsController@limpiacarro',
-));
-
-Route::get('aloneadd/{id}', array(
-  'as' => 'aloneadd',
-  'uses' => 'ItemsController@aloneadd',
-));
-
-Route::get('add/{paquete}', array(
-  'as' => 'add',
-  'uses' => 'ItemController@add',
-));
 

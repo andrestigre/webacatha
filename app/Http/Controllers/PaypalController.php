@@ -171,7 +171,7 @@ class PaypalController extends Controller
             // Enviar correo a admin
             // Redireccionar
             //Guardar transaccion $this->crearOrden();
-            flash('Compra realizada de forma correcta')->info();
+            flash('Compra realizada de forma correcta.')->info();
             return \Redirect::route('order_success');
                 //return "finalizado";
         }

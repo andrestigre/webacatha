@@ -40,7 +40,7 @@
 
 
             <div class="container">
-
+                {{--
                 <div class="carousel-caption">
 
                     <p><div style="color: #FFF; font-size: 34px;">{{ $item->titulo }}<br/></div>
@@ -55,10 +55,32 @@
                             <a id="myBtn" class="btn btn-lg btn-primary" role="button">Suscr&iacute;bete</a>
                         </p>
                     </div>
+                    --}}
+
+                    <div class="align-left">
+                        @include('layouts.partials.formsuscription')
+                    </div>
+
                     @if(($item->video_background)=='1')
+
+
+                <style type="text/css">
+                
+                    .background-video iframe{
+                        /*width 475px*//*heigth 297px;*/
+                    }
+
+                    
+  /*background-image: url({{ asset('acatha/img/laptop2.png')  }});*/
+
+                </style>
+
+
                     <div class="carousel-image wow zoomIn">
                         <div id="background-video">
-                            <iframe width="475" height="297" src="{{ $item->enlace_video }}" frameborder="0" allowfullscreen></iframe>
+                       
+                            <iframe src="{{ $item->enlace_video }}" width="475" height="297" frameborder="0" allowfullscreen></iframe>
+                        
                         </div>
                     </div>
                     @endif

@@ -1,0 +1,58 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "price",
+            "type": "double"
+        },
+        {
+            "name": "pack",
+            "type": "string"
+        },
+        {
+            "name": "payment_status",
+            "type": "select",
+            "options": {
+                "0": "Completado",
+                "1": "En espera"            
+            }
+        },
+        {
+            "name": "detall",
+            "type": "text"
+        },
+        {
+            "name": "tipopaquete_id",
+            "type": "string"
+        },
+        {
+            "name": "tipo_paquete",
+            "type": "string"
+        },
+        {
+            "name": "cli_nombre",
+            "type": "string"
+        },
+        {
+            "name": "cli_email",
+            "type": "string"
+        },
+        {
+            "name": "cli_contacto",
+            "type": "string"
+        }
+    ],
+    "validations": [
+        {
+            "field": "title",
+            "rules": "required|max:25"
+        },
+        {
+            "field": "price",
+            "rules": "required"
+        }
+    ]
+}   
