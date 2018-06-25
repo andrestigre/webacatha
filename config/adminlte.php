@@ -138,6 +138,11 @@ return [
             'icon' => 'envelope',
         ],
         [
+                    'text' => 'Suscritos',
+                    'url'  => 'admin/suscription',
+            'icon' => 'envelope',
+        ],
+        [
             'text'    => 'WEB',
             'icon'    => 'share',
             'submenu' => [

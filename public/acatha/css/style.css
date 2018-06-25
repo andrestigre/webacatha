@@ -254,7 +254,7 @@ h1 {
 .carousel-image {
   position: absolute;
   right: 550px;
-  top: 100px;
+  top: 230px;
   /*right: 10px;
   top: 150px;*/
 }
@@ -1060,7 +1060,7 @@ section.comments {
   }
 }
 
-#background-video {
+#background-videoORIGINAL {
   background-image: url('../img/laptop2.png');
   background-repeat: no-repeat;
   padding: 22px;
@@ -1070,6 +1070,18 @@ section.comments {
   padding-bottom: 50px;
 }
 
+
+#background-video {
+  background-image: url('../img/laptop2.png');
+  background-repeat: no-repeat;
+  padding: 22px;
+  padding-left: 60px;
+  padding-right: 60px;
+  height: 70%;
+  padding-bottom: 150px;
+  background-size: 525px 287px;
+  padding-top: 10px;
+}
 
 /* Modal Header */
 .modal-header {

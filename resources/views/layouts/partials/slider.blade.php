@@ -57,30 +57,25 @@
                     </div>
                     --}}
 
-                    <div class="align-left">
+                    <div class="align-left col-lg-4 col-md-4 col-sm-6 col-xs-2">
+                        {{--
+                            --}}
                         @include('layouts.partials.formsuscription')
                     </div>
 
                     @if(($item->video_background)=='1')
 
 
-                <style type="text/css">
-                
-                    .background-video iframe{
-                        /*width 475px*//*heigth 297px;*/
-                    }
-
-                    
-  /*background-image: url({{ asset('acatha/img/laptop2.png')  }});*/
-
-                </style>
-
+               
 
                     <div class="carousel-image wow zoomIn">
                         <div id="background-video">
-                       
+                       <!--DEFAULT : width="475" height="297"-->
+                       {{--
                             <iframe src="{{ $item->enlace_video }}" width="475" height="297" frameborder="0" allowfullscreen></iframe>
-                        
+                        --}}
+                            <iframe src="{{ $item->enlace_video }}" width="400" height="240" frameborder="0" allowfullscreen></iframe>
+
                         </div>
                     </div>
                     @endif

@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="img/png" href="img/favicon.ico"/>
     <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
     <meta charset="utf-8">
@@ -419,7 +420,14 @@
                   <h3 class="modal-title" id="paqueteseleccionado"> Paquete  </h3>
               </div>
               <div class="modal-body">
-                 <form id="formselecpaquete" class="form-horizontal" >
+
+
+
+
+                {!! Form::open(['url' => '', 'id'=>'formselecpaquete','class' => 'form-horizontal', 'enctype'=>'multipart/form-data' ,  'accept-charset'=>'UTFF-8']) !!}
+
+                            
+
 
                   <input type="hidden" name="paqinput" id="paqinputmodal" value=""/>
 
@@ -430,13 +438,13 @@
                             <div class="panel-heading">Necesitamos tus datos </div>
                             <div class="panel-body">
 
-                                <form class="form-inline" action="">
+                                <!--form-inline-->
                                     <div class="row">
                                         <div class="col-md-6">
 
                                             <div class="form-group">
                                                 <div class="col-md-10">
-                                                    <label for="pwd">Nombre:</label>
+                                                    <label for="pwd">Nombre :</label>
                                                     <input type="text" class="form-control" id="nombrecliente">
                                                 </div>
                                             </div>
@@ -457,7 +465,17 @@
 
                                         <div class="form-group">
                                             <div class="col-md-10">
-                                                <label for="pwd">Contacto :</label>
+                                                <label for="pwd">Ruc :</label>
+                                                <input type="text" class="form-control" id="ruccliente">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <label for="pwd">Teléfono :</label>
                                                 <input type="text" class="form-control" id="contactocliente">
                                             </div>
                                         </div>
@@ -471,7 +489,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
 
@@ -557,7 +574,9 @@
 
 
 
-        </form>
+    {!! Form::close() !!}
+        
+
     </div>
     <div class="modal-footer">
             <!--
@@ -582,6 +601,11 @@
 <script src="{{ asset('acatha/js/funciones.js') }}"></script>
 <!--
 -->
+
+<script>
+            $('div.alert').not('.alert-important').delay(3000).fadeOut(800);
+</script>
+
 <script>
     $.validator.setDefaults({
         submitHandler: function()
@@ -739,9 +763,7 @@
             motionAI_Open();
         </script>
 
-        <script>
-            $('div.alert').not('.alert-important').delay(3000).fadeOut(650);
-        </script>
+        
 
     </body>
     </html>

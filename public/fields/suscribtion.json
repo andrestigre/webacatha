@@ -1,0 +1,35 @@
+
+{
+    "fields": [
+        {
+            "name": "namesuscripcion",
+            "type": "text"
+        },
+        {
+            "name": "emailsuscripcion",
+            "type": "text"
+        },
+        {
+            "name": "telefonosuscripcion",
+            "type": "string"
+        },
+        {
+            "name": "estado",
+            "type": "boolean"
+        }
+    ],
+    "validations": [
+        {
+            "field": "namesuscripcion",
+            "rules": "required|max:75"
+        },
+        {
+            "field": "emailsuscripcion",
+            "rules": "required|unique|max:45"
+        },
+        {
+            "field": "telefonosuscripcion",
+            "rules": "required|max:45"
+        }
+    ]
+}

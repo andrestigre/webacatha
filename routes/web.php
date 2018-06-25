@@ -15,9 +15,9 @@
     //return view('welcome');
 //    return view('acatha');
 //});
-Route::bind('paquete', function($id){
+/*Route::bind('paquete', function($id){
   return App\Paquete::where('id', $id)->first();
-});
+});*/
 
 
 Route::get('/', 'AcathaController@index');
@@ -81,7 +81,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::resource('/contacto', 'AdminAuth\\ContactoController');
   Route::get('/select_paquete', 'AdminAuth\\PaqueteController@select_itemcrt');
   Route::resource('/review-invoice', 'AdminAuth\\ReviewInvoiceController');
-
+  Route::resource('/suscription', 'AdminAuth\\SuscriptionController');
 });
 
 
@@ -99,6 +99,7 @@ Route::group(['prefix' => 'customer'], function () {
   Route::get('/password/reset/{token}', 'CustomerAuth\ResetPasswordController@showResetForm');
 });
 
+  Route::resource('/suscription', 'SuscriberController');
 
 
 
@@ -140,5 +141,6 @@ Route::get('payment/status', array(
   'as' => 'payment.status',
   'uses' => 'PaypalController@getPaymentStatus',
 ));
+
 
 

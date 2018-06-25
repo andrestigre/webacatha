@@ -84,6 +84,9 @@ $(document).ready(function () {
 
 var ComprarPaquete = function(id){
 
+//var formselecpaquete = $("#formselecpaquete").serialize();
+var $form = $(this).parents('form');
+
 	if(id=='4'){
 		$('#divdescripcion').show();
 	$('#ocultarmetodopago').hide();

@@ -56,6 +56,7 @@ class PaqueteController extends Controller
     {
         
         $tipospaquetes = Tipopaquete::where('activo','1')->pluck('tipo_paquete', 'id');
+
         return view('admin.paquete.create', compact('tipospaquetes'));
     }
 
@@ -111,6 +112,7 @@ class PaqueteController extends Controller
     {
         $paquete = Paquete::findOrFail($id);
         $tipospaquetes = Tipopaquete::where('activo','1')->pluck('tipo_paquete', 'id');
+
         return view('admin.paquete.edit', compact('paquete','tipospaquetes'));
     }
 
