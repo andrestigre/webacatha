@@ -25,7 +25,7 @@ class Paquete extends Model
      *
      * @var array
      */
-    protected $fillable = ['detalle', 'precio', 'periodo','estado', 'tipopaquete_id'];
+    protected $fillable = ['detalle', 'precio_mes', 'precio_fijo', 'periodo','estado', 'tipopaquete_id'];
 
     public function Tipopaquete()
     {

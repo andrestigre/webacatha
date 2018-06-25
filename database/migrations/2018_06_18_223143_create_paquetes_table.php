@@ -16,7 +16,8 @@ class CreatePaquetesTable extends Migration
             $table->increments('id');
             $table->string('detalle')->nullable();
             $table->string('periodo')->nullable();
-            $table->double('precio',15,2)->nullable();
+            $table->double('precio_mes',15,2)->nullable();
+            $table->double('precio_fijo',15,2)->nullable();
             $table->boolean('estado')->default(1);
             $table->integer('tipopaquete_id')->unsigned();
             $table->foreign('tipopaquete_id')->references('id')->on('tipopaquetes');

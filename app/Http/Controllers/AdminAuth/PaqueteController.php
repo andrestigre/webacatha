@@ -36,7 +36,8 @@ class PaqueteController extends Controller
         if (!empty($keyword)) {
             $paquete = Paquete::where('item_paquete', 'LIKE', "%$keyword%")
                 ->orWhere('detalle', 'LIKE', "%$keyword%")
-                ->orWhere('precio', 'LIKE', "%$keyword%")
+                ->orWhere('precio_mes', 'LIKE', "%$keyword%")
+                ->orWhere('precio_fijo', 'LIKE', "%$keyword%")
                 ->orWhere('estado', 'LIKE', "%$keyword%")
                 ->orWhere('tipopaquete_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
@@ -70,7 +71,8 @@ class PaqueteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'precio' => 'nullable|numeric|min:0'
+            'precio_mes' => 'nullable|numeric|min:0',
+            'precio_fijo' => 'nullable|numeric|min:0'
         ]);
         
         
@@ -127,7 +129,8 @@ class PaqueteController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'precio' => 'nullable|numeric|min:0'
+            'precio_mes' => 'nullable|numeric|min:0',
+            'precio_fijo' => 'nullable|numeric|min:0'
         ]);
         
         $requestData = $request->all();       
